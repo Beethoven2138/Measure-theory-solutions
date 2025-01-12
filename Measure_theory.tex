@@ -91,6 +91,9 @@ $\sum_{i=1}^{\infty} \left(\sum_{j=1}^{\infty} x_{ij}\right)=\lim_{N\to\infty}\s
     \sigma(\mathcal{X}) = \{\bigcup_{j \in J} A_j : J \subset \{1, 2, \ldots, k\}\}.
     \]
 \end{exercise}
+\begin{proof}
+We shall refer to $\{\bigcup_{j \in J} A_j : J \subset \{1, 2, \ldots, k\}\}$ as $\mathcal{B}$. $\emptyset=\bigcup_{j\in\emptyset}A_j\in\mathcal{B}$. Let $P\in\mathcal{B}$. Then $P=\bigcup_{j\in J}A_j$ for some $J\subseteq\{1,2,...,k\}$ so $P^c=\bigcup_{j\in J^c}A_j\in\mathcal{B}$. Let $P_1,P_2,...\in\mathcal{B}$ so that each $P_i=\bigcup_{j\in J_i}A_j$ for some $J_i\subseteq\{1,2,...,k\}$. Then $\bigcup_{i=1}^\infty P_i=\bigcup_{i=1}^\infty\bigcup_{j\in J_i}A_j=\bigcup_{j\in\bigcup_{i=1}^\infty J_i}A_j\in\mathcal{B}$ since $\bigcup_{i=1}^\infty J_i\subseteq\{1,2,...,k\}$. Thus $\mathcal{B}$ is indeed a $\sigma$-algebra. Now suppose that $\mathcal{M}$ is another $\sigma$-algebra such that $\mathcal{X}\subseteq\mathcal{M}$. Clearly $\mathcal{B}\subseteq\mathcal{M}$ and so $\mathcal{B}$ is the smallest $\sigma$-algebra containing $\mathcal{X}$ so $\sigma(\mathcal{X})=\mathcal{B}$.
+\end{proof}
 \begin{exercise}
     Suppose $X$ is a non-empty set and $\mathcal{X} = \{A_1, A_2, A_3, \ldots\}$, where the sets $A_i, i \geq 1$ are non-empty and form a countably infinite partition of $X$, i.e., they are pairwise disjoint and $\bigcup_{i=1}^{\infty} A_i = X$.
     \begin{enumerate}
