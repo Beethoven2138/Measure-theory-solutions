@@ -110,6 +110,17 @@ We shall refer to $\{\bigcup_{j \in J} A_j : J \subset \{1, 2, \ldots, k\}\}$ as
 \begin{exercise}
 Suppose $X = (0, 7]$ and $C = \{(0, 2], (1, 5]\}$. Write down the sets in $\sigma(C)$.
 \end{exercise}
+\begin{proof}
+$(0,2]^c=(2,7],(1,5]^c=(0,1]\cup(5,7]$.
+
+$(0,2]\cup(1,5]=(0,5]$.
+
+$(0,5]^c=(5,7]$.
+
+$(5,7]\cup(0,5]=X$.
+
+Thus $\sigma(\mathcal{C})\supseteq \mathcal{M}:=\{\emptyset,(0,2],(1,5],(0,1]\cup(5,7],(0,5],(5,7],(0,7],(0,2]\cup(5,7],(1,7],(2,5],(0,1],(0,1]\cup(2,5],(1,2]\cup(5,7],(2,7],(1,2],(0,1]\cup(2,7]\}$. $\mathcal{P}:=\{(0,1],(1,2],(2,5],(5,7]\}$ is a partition of $X$ so $\sigma(\mathcal{P})$ has $16$ elements. $\mathcal{C}\subseteq\sigma(\mathcal{P})$ so $\mathcal{M}\subseteq\sigma(\mathcal{P})$. $\mathcal{M}$ also has $16$ elements so $\mathcal{M}=\sigma(\mathcal{P})$. Thus $\sigma(\mathcal{C})=\mathcal{M}$.
+\end{proof}
 
 \begin{exercise}
     Let
