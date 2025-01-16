@@ -139,6 +139,13 @@ Thus $\sigma(\mathcal{C})\supseteq \mathcal{M}:=\{\emptyset,(0,2],(1,5],(0,1]\cu
         \item Prove that $\sigma(\mathcal{D}) = \mathcal{B}$.
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item $(1,2]$.
+    \item $\mathcal{K}\subseteq\mathcal{H}$ so $\sigma(\mathcal{K})\subseteq\sigma(\mathcal{H})=\mathcal{B}$. Let $U\in\mathcal{O}$. Then for each $x\in U$ we can find $q,r\in\mathbb{Q}$ such that $x\in[q,r]$ and hence $U=\bigcup_{(q,r)\in\mathbb{Q}^2,[q,r]\subseteq U}[q,r]$ which is an element of $\sigma(\mathcal{K})$ since closed intervals are bounded and $\mathbb{Q}^2$ is countable. Thus $\mathcal{O}\subseteq\sigma(\mathcal{K})$ and so $\sigma(\mathcal{K})=\mathcal{B}$.
+    \item Let $a,b\in\mathbb{Q}$ with $a< b$. Then $(a,b]=(-\infty,a]^c\cap(-\infty,b]\in\sigma(\mathcal{D})$. Let $x\in\mathbb{Q},y\in\mathbb{R}$ such that $x<y$. By the density of $\mathbb{Q}$ in $\mathbb{R}$ there exists a decreasing sequence $(x_n)_{n\in\mathbb{N}}\in\mathbb{Q}$ such that $\lim_{n\to\infty}x_n=x$. Let $A:=\bigcup_{n=1}^\infty(x_n,y]\subseteq(x,y]$. Let $\epsilon>0$ such that $x+\epsilon\leq y$. Then $\exists N\in\mathbb{N}:x_N<x+\epsilon$ and so $x+\epsilon\in(x_N,y]\subseteq A$. Thus $(x,y]\subseteq A$ and so $(x,y]=A$. Thus $\sigma(\mathcal{D})$ contains all sets of the form $(x,y],x\in\mathbb{R},y\in\mathbb{Q}$. Now consider $(x,y]$ where both $x,y\in\mathbb{R}$. By the density of $\mathbb{Q}$ in $\mathbb{R}$ there exists a decreasing sequence $(y_n)_{n\in\mathbb{N}}\in\mathbb{Q}$ such that $\lim_{n\to\infty}y_n=y$. Let $A:=\bigcap_{n=1}^\infty(x,y_n]\supseteq(x,y]$. Let $t>y$. Then $\exists N\in\mathbb{N}$ such that $y_N<t$ and hence $t\not\in(x,y_N]$. Thus $(x,y]=A$ and hence $\mathcal{I}\subseteq\sigma(\mathcal{D})$, implying $\sigma(\mathcal{I})=\mathcal{B}\subseteq\sigma(\mathcal{D})$. Let $(-\infty,q]\in\mathcal{D}$. Let $A:=\bigcup_{n=1}^\infty(-n,q]\in\sigma(\mathcal{I})$. Then given any $x<q:\exists N\in\mathbb{N}:-N<x$ and so $x\in A$. Thus $A=(-\infty,q]$ and hence $\mathcal{D}\subseteq\sigma(\mathcal{I})=\mathcal{B}\implies\sigma(\mathcal{D})\subseteq\mathcal{B}$. Thus $\sigma(\mathcal{D})=\mathcal{B}$.
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Show that the examples described just after Definition 3.1 are indeed measures. 
     [\textit{Hint: you may find Exercise 4 useful here.}]
