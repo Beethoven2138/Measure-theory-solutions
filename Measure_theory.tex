@@ -150,6 +150,15 @@ Thus $\sigma(\mathcal{C})\supseteq \mathcal{M}:=\{\emptyset,(0,2],(1,5],(0,1]\cu
     Show that the examples described just after Definition 3.1 are indeed measures. 
     [\textit{Hint: you may find Exercise 4 useful here.}]
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item Counting measure: $\mu(\emptyset)=0$. Let $A_1,A_2,...\in\mathcal{M}$ be pairwise disjoint. If there exists an $N\in\mathbb{N}$ such that $A_n=\emptyset\forall n>N$ then $\bigcup_{i=1}^\infty A_i=\bigcup_{i=1}^N A_i$ so $\mu(\bigcup_{i=1}^\infty A_i)=\#\text{ of elements of }\bigcup_{i=1}^N A_i=\sum_{i=1}^N\mu(A_i)=\sum_{i=1}^\infty\mu(A_i)$. Otherwise, $\mu(\bigcup_{i=1}^\infty A_i)=\infty=\sum_{i=1}^\infty A_i$.
+    \item Dirac measure: $\delta_x(\emptyset)=0$ since $x\not\in\emptyset$. Let $A_1,A_2,...\in\mathcal{M}$ be pairwise disjoint. Suppose $x\in\bigcup_{i=1}^\infty A_i$ so that $\delta_x(\bigcup_{i=1}^\infty A_i)=1$. Since the $A_i$'s are disjoint there is a single $A_i$ for which $\delta_x(A_i)=1$ and every other set does not include $x$. Thus $\sum_{i=1}^\infty \delta_x(A_i)=1$. Now suppose $x\not\in\bigcup_{i=1}^\infty A_i$ so that $\delta_x(\bigcup_{i=1}^\infty A_i)=0$. Then $\delta_x(A_i)=0\forall i$ so $\sum_{i=1}^\infty\delta_x(A_i)=0$.
+    \item Scalar multiples of measures: $(a\mu)(\emptyset)=a\cdot 0=0$. $\sum_{i=1}^\infty(a\mu)(A_i)=a\sum_{i=1}^\infty\mu(A_i)=a\mu(\bigcup_{i=1}^\infty A_i)=(a\mu)(\bigcup_{i=1}^\infty A_i)$.
+    \item Countable sums of measures: $(\sum_{i=1}^\infty\mu_i)(\emptyset)=\sum_{i=1}^\infty\mu_i(\emptyset)=\sum_{i=1}^\infty 0 = 0$. $(\sum_{i=1}^\infty\mu_i)(\bigcup_{n=1}^\infty A_n)=\sum_{i=1}^\infty \mu_i(\bigcup_{n=1}^\infty A_n)=\sum_{i=1}^\infty(\sum_{n=1}^\infty \mu_i(A_n))=\sum_{n=1}^\infty(\sum_{i=1}^\infty \mu_i(A_n))=\sum_{n=1}^\infty(\sum_{i=1}^\infty\mu_i)(A_n)$.
+    \item Discrete measures: $\mu(\emptyset)=\sum_{i\in\emptyset}m_i=0$. $\mu(\bigcup_{n=1}^\infty A_n)=\sum_{i\in\bigcup_{n=1}^\infty A_n}m_i=\sum_{n=1}^\infty(\sum_{i\in A_n}m_i)=\sum_{n=1}^\infty\mu(A_n)$.
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Let $\mu$ be a measure on $(\mathbb{R}, \mathcal{B})$ with $\mu(\mathbb{R}) < \infty$. For $x \in \mathbb{R}$, set $F(x) = \mu((-\infty, x])$. Show that $F$ is nondecreasing and right continuous. [A function $f : \mathbb{R} \to \mathbb{R}$ is right continuous if for all $x \in \mathbb{R}$ and $\epsilon > 0$ there exists $\delta > 0$ such that if $x < y < x + \delta$ then $|f(y) - f(x)| < \epsilon$.]
 \end{exercise}
