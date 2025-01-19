@@ -162,6 +162,12 @@ Thus $\sigma(\mathcal{C})\supseteq \mathcal{M}:=\{\emptyset,(0,2],(1,5],(0,1]\cu
 \begin{exercise}
     Let $\mu$ be a measure on $(\mathbb{R}, \mathcal{B})$ with $\mu(\mathbb{R}) < \infty$. For $x \in \mathbb{R}$, set $F(x) = \mu((-\infty, x])$. Show that $F$ is nondecreasing and right continuous. [A function $f : \mathbb{R} \to \mathbb{R}$ is right continuous if for all $x \in \mathbb{R}$ and $\epsilon > 0$ there exists $\delta > 0$ such that if $x < y < x + \delta$ then $|f(y) - f(x)| < \epsilon$.]
 \end{exercise}
+\begin{proof}
+Let $a<b$. Then $F(b)=\mu((-\infty,b])=\mu((-\infty,a])+\mu((a,b])\geq F(a)$.
+
+Let $x\in\mathbb{R}$ and let $\epsilon>0$.
+Define $A_1,A_2,...\in\mathcal{B}$ by $A_n=(-\infty,x+\frac{1}{n}]$ so that $\bigcap_{n=1}^\infty A_n=(-\infty,x]$. Then by downwards continuity we have $\lim_{n\to\infty}\mu(A_n)=F(x)$ so $\exists N\in\mathbb{N}$ such that $F(x+\frac{1}{N})<F(x)+\epsilon$. Let $\delta:=\frac{1}{N}$. Then $\forall y$ such that $x<y<x+\delta$ we have $|F(y)-F(x)|<F(x)+\epsilon-F(x)=\epsilon$.
+\end{proof}
 \begin{exercise}
     \begin{enumerate}
         \item Give an example of a measure space $(X, \mathcal{M}, \mu)$ and a sequence of sets $A_1 \supset A_2 \supset A_3 \supset \ldots$ with each $A_i \in \mathcal{M}$, such that $\mu(\bigcap_{n=1}^{\infty} A_i) \neq \lim_{n \to \infty} \mu(A_i)$.
