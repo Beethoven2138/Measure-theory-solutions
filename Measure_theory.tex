@@ -170,14 +170,23 @@ Define $A_1,A_2,...\in\mathcal{B}$ by $A_n=(-\infty,x+\frac{1}{n}]$ so that $\bi
 \end{proof}
 \begin{exercise}
     \begin{enumerate}
-        \item Give an example of a measure space $(X, \mathcal{M}, \mu)$ and a sequence of sets $A_1 \supset A_2 \supset A_3 \supset \ldots$ with each $A_i \in \mathcal{M}$, such that $\mu(\bigcap_{n=1}^{\infty} A_i) \neq \lim_{n \to \infty} \mu(A_i)$.
+        \item Give an example of a measure space $(X, \mathcal{M}, \mu)$ and a sequence of sets $A_1 \supset A_2 \supset A_3 \supset \ldots$ with each $A_i \in \mathcal{M}$, such that $\mu(\bigcap_{n=1}^{\infty} A_n) \neq \lim_{n \to \infty} \mu(A_n)$.
         \item Give an example of a measurable space $(X, \mathcal{M})$ and a set function $\mu : \mathcal{M} \to [0, \infty]$ such that $\mu$ is finitely additive but not countably additive. 
         [\textit{Hint: In both cases we can take $X = \mathbb{N}$.}]
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item Let $X=\mathbb{N}$ and let $\mathcal{M}=\mathcal{P}(X)$. Let $\mu$ be the counting measure and let $A_n=2^n\mathbb{N}$. Then $\bigcap_{n=1}^\infty A_n=\emptyset$ since given any $i\in\mathbb{N}$ we have $i\not\in A_{i}$, and so $\mu(\bigcap_{n=1}^\infty A_n)=0$. However, $\mu(A_n)=\infty\forall n$ so $\lim_{n\to\infty}\mu(A_n)=\infty$.
+    \item Let $X=\mathbb{N}$, let $\mathcal{M}=\mathcal{P}(X)$ and let $\mu(A)=\infty$ if $A$ is infinite and $0$ if $A$ is finite. Let $A_n=\{n\}$. Then $\mu(\bigcup_{n=1}^\infty A_n)=\mu(\mathbb{N})=\infty$ whereas $\sum_{n=1}^\infty\mu(A_n)=0$.
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Suppose $X$ is a non-empty set and $\mathcal{X} = \{A_1, A_2, \ldots\}$ is a partition of $X$ with $A_i \neq \emptyset$ for each $i \in \mathbb{N}$. Suppose $(a_1, a_2, a_3, \ldots)$ is a sequence of nonnegative numbers. Show that there is a unique measure $\mu$ on the measurable space $(X, \sigma(\mathcal{X}))$ with $\mu(A_i) = a_i$ for all $i \in \mathbb{N}$.
 \end{exercise}
+\begin{proof}
+Define a set function $\mu:\sigma(\mathcal{X})\to[0,\infty]$ by $\mu(\bigcup_{j\in J}A_j)=\sum_{j\in J}a_j$ given $J\subseteq\mathbb{N}$. This defines $\mu$ for all elements of $\sigma(\mathcal{X})$. $\mu(\emptyset)=\sum_{j\in\emptyset}a_j=0$. Given pairwise disjoint $\bigcup_{j\in j_1}A_j,\bigcup_{j\in j_2}A_j,...$ (meaning that $J_1,J_2,...$ are pairwise disjoint) we have $\mu(\bigcup_{i=1}^\infty\bigcup_{j\in J_i}A_j)=\mu(\bigcup_{j\in\bigcup_{i=1}^\infty J_i}A_j)=\sum_{j\in\bigcup_{i=1}^\infty J_i}a_j=\sum_{i=1}^\infty(\sum_{j\in J_i}a_j)=\sum_{i=1}^\infty\mu(\bigcup_{j\in J_i}A_j)$. Thus $\mu$ is a measure. Now suppose that $\nu$ is another measure satisfying $\nu(A_i)=a_j\forall i\in\mathbb{N}$. Then $\nu(\bigcup_{j\in J}A_j)=\sum_{j\in J}a_j=\mu(\bigcup_{j\in J}A_j)=\sum_{j\in J}a_j\forall J\subseteq\mathbb{N}$ so $\nu=\mu$.
+\end{proof}
 
 \begin{exercise}
 Show that if $A \subset \mathbb{R}$ is countable then $A \in \mathcal{B}$ and $\lambda_1(A) = 0$.
