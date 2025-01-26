@@ -191,19 +191,36 @@ Define a set function $\mu:\sigma(\mathcal{X})\to[0,\infty]$ by $\mu(\bigcup_{j\
 \begin{exercise}
 Show that if $A \subset \mathbb{R}$ is countable then $A \in \mathcal{B}$ and $\lambda_1(A) = 0$.
 \end{exercise}
+\begin{proof}
+Let $x\in\mathbb{R}$ ($\{x\}$ is also a Borel set since $x=((-\infty,x)\cup(x,\infty))^c$). Then $x\in(x-\frac{1}{n},x]\forall n\in\mathbb{N}$ so $0\leq\lambda_1(\{x\})\leq \lambda((x-\frac{1}{n},x])=\frac{1}{n}\forall n$ so $\lambda_1(\{x\})=0$. Now enumerate the elements of $A$ as $x_1,x_2,x_3,...\in\mathbb{R}$ (allowing for possible repetitions for if $A$ is finite) so that $A=\bigcup_{i=1}^\infty\{x_i\}$. Then by countable sub-additivity $0\leq\lambda_1(A)\leq\sum_{i=1}^\infty\lambda_1(\{x_i\})=0$.
+\end{proof}
 \begin{exercise}
     Show that for any interval $I$ with left endpoint $a$ and right endpoint $b$ we have $\lambda_1(I) = b - a$ (regardless of whether $a, b \in I$ or not).
 \end{exercise}
+\begin{proof}
+If $I=(a,b]$ then $\lambda_1((a,b])=\lambda((a,b])=b-a$.
+If $I=(a,b)$ then $\lambda_1((a,b))=\lambda_1((a,b])-\lambda_1(\{b\})=b-a-0=b-a$.
+etc.
+\end{proof}
 \begin{exercise}
     Give an example of a Borel set $A \subset \mathbb{R}$ with $\lambda_1(A) > 0$ but with no non-empty open interval contained in $A$.
 \end{exercise}
+\begin{proof}
+$\mathbb{R}\setminus\mathbb{Q}$.
+\end{proof}
 \begin{exercise}
     Given $\epsilon > 0$, give an example of an open set $U \subset \mathbb{R}$ with $\lambda_1(U) < \epsilon$ that is dense in $\mathbb{R}$, i.e., has non-empty intersection with every non-empty open interval in $\mathbb{R}$.
 \end{exercise}
+\begin{proof}
+Let $x_1,x_2,x_2,...$ be an enumeration of $\mathbb{Q}$. Let $U=\bigcup_{i=1}^\infty(x_i-\frac{\epsilon}{2^{i+2}},x_i+\frac{\epsilon}{2^{i+2}})$. Then $\lambda_i(U)\leq\sum_{i=1}^\infty\frac{2\epsilon}{2^{i+2}}=\frac{\epsilon}{2}\sum_{i=1}^\infty\frac{1}{2^i}=\frac{\epsilon}{2}<\epsilon$.
+\end{proof}
 \begin{exercise}
     Suppose $A \subset \mathbb{R}$ is a bounded Borel set. Show that for all $\epsilon > 0$ there exists a set $U$ which is a finite union of intervals, such that $\lambda_1(A \Delta U) < \epsilon$, where $A \Delta U := (A \cup U) \setminus (A \cap U)$. 
     [\textit{Hint: use the fact that $\lambda_1(A) = \lambda^*(A)$.}]
 \end{exercise}
+\begin{proof}
+$\lambda_1(A)=\text{inf }\{\sum_{n=1}^\infty\lambda(I_n):A\subseteq\bigcup_{n=1}^\infty I_n;I_1,I_2,...\in \overline{I}\}$ so by properties of infimums there exists $I_1,I_2,..\in\overline{I}$ such that $A\subseteq \bigcup_{n=1}^\infty I_n$ and $\lambda_1(\bigcup_{n=1}^\infty I_n)\leq\sum_{n=1}^\infty\lambda_1(I_n)<\frac{\epsilon}{2}+\lambda_1(A)$. Let $S:=\bigcup_{n=1}^\infty I_n$ and let $S_N:=\bigcup_{n=1}^N I_n$. Then by upward continuity $\lambda_1(S)=\lim_{N\to\infty}\lambda_1(S_N)$. Thus $\exists K\in\mathbb{N}$ such that $\lambda_1(S)-\lambda_1(S_K)<\frac{\epsilon}{2}$. $A\setminus S_K\subseteq S\setminus S_K$ so $\lambda_1(A\setminus S_K)\leq\lambda_1(S\setminus S_K)=\lambda_1(S)-\lambda_1(S_k)<\frac{\epsilon}{2}$. $S_K\setminus A\subseteq S\setminus A$ so $\lambda_1(S_K\setminus A)\leq\lambda_1(S\setminus A)=\lambda_1(S)-\lambda_1(A)<\frac{\epsilon}{2}$. Thus $\lambda_1(S_K\Delta A)=\lambda_1(S_K\setminus A)+\lambda_1(A\setminus S_K)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$.
+\end{proof}
 \begin{exercise}
     In this question we write $\lambda^*(A)$ for the Lebesgue outer measure of $A$.
     \begin{enumerate}
@@ -213,6 +230,12 @@ Show that if $A \subset \mathbb{R}$ is countable then $A \in \mathcal{B}$ and $\
         \item Show that the set $A \ominus A := \{x - y : x, y \in A\}$ includes a non-empty half-open interval.
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item $\lambda^*(A)=\text{inf }\{\sum_{n=1}^\infty\lambda(I_n):A\subseteq\bigcup_{n=1}^\infty I_n,I_1,I_2,...\in\overline{I}\}$.
+    \item Given any $N\in\mathbb{N}$ there exists a countable union $A_N\in\mathcal{B}$ of elements in $\overline{I}$ such that $A\subseteq A_N$ and $\lambda^*(A)\leq\lambda_1(A_N)<\lambda^*(A)+\frac{1}{N}$. Let $S_N:=\bigcap_{n=1}^N A_n\in\mathcal{B}$ and let $S:=\bigcap_{n=1}^\infty A_n\in\mathcal{B}$. By downwards continuity $\lambda_1(S)=\lim_{N\to\infty}\lambda_1(S_N)$. $A\subseteq S_N\subseteq A_N$ so $\lambda^*(A)\leq\lambda_1(S_N)<\lambda^*(A)+\frac{1}{N}\forall N$, implying that $\lim_{N\to\infty}\lambda_1(S_N)=\lambda^*(A)$ and hence $\lambda_1(S)=\lambda^*(A)$.
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Suppose $X$ is a non-empty set and $\mathcal{D}$ is a $\pi$-system in $X$. Show that for any $k \in \mathbb{N}$, if $A_i \in \mathcal{D}$ for $i = 1, 2, \ldots, k$ then $\bigcap_{i=1}^{k} A_i \in \mathcal{D}$.
 \end{exercise}
