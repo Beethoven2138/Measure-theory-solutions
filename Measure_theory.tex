@@ -237,7 +237,9 @@ $\lambda_1(A)=\text{inf }\{\sum_{n=1}^\infty\lambda(I_n):A\subseteq\bigcup_{n=1}
     \item First let $A$ be bounded. Suppose for a contradiction that there exists an $\epsilon>0$ such that  $\lambda_1(A\cap I)<(1-\epsilon)\lambda_1(I)$ for every non-empty half-open interval $I$. Clearly $\epsilon<1$. Let $\delta>0$ be such that $(1-\epsilon)(1+\delta)<1$. We have a countable union of half-open intervals $S=\bigcup_{n=1}^\infty I_n$ with $A\subseteq S$ such that $\sum_{n=1}^\infty\lambda_1(I_n)<\lambda_1(A)+\delta$. We also have $\lambda_1(A)\leq\sum_{n=1}^\infty\lambda_1(A\cap I_n)<(1-\epsilon)\sum_{n=1}^\infty\lambda_1(I_n)$ so $\lambda_1(A)<(1-\epsilon)(1+\delta)\lambda_1(A)$; a contradiction.
 
     Now let $A$ be unbounded. Let $A_n:=A\cap[-n,n]$ so that $A_n\subseteq A_{n+1}\forall n$ and $A=\bigcup_{i=1}^\infty A_i$. $\lambda_1(A)=\lim_{n\to\infty}\lambda_1(A_n)$ so $\exists N\in\mathbb{N}$ such that $\lambda_1(A_N)>0$. Hence $\lambda_1(A\cap I)\geq\lambda_1(A_N\cap I)\geq(1-\epsilon)\lambda_1(I)$ for some non-empty half-open interval $I$.
+    \item Suppose that $A\ominus A$ does not contain a non-empty half-open interval. Then $\forall\epsilon>0$ there exists a non-empty half-open interval $I$ with $\lambda_1(A\cap I)\geq(1-\epsilon)\lambda_1(I)\geq\lambda_1(I\cap A\ominus A)$.
 
+    There exists a non-empty half-open interval $I$ such that $\lambda_1(A\cap I)\geq0.999\lambda_1(I)$. Suppose $z\not\in A\ominus A$. Then $\forall x,y\in A$ we have $z\neq x-y$ so $x\neq z+y$. Hence $(z+A)\cap A=\emptyset$ so $z+A\subseteq A^c$. Let $\delta$ be such that $I=(a,a+\delta]$. Suppose that $z\in(0,\frac{\delta}{2}]$ and $z\not\in A\ominus A$. Then $(a,a+\frac{\delta}{2}]+z\subseteq(a,a+\delta]$ and so $z+(a,a+\frac{\delta}{2}]\cap A\subseteq A^c\cap(a,a+\delta]$. Hence $\lambda_1(A\cap(a,a+\frac{\delta}{2}])\leq\lambda_1(A^c\cap(a,a+\delta])=\lambda_1((a,a+\delta])-\lambda_1(A\cap(a,a+\delta])\leq \delta-0.999\delta=0.001\delta$. Furthermore $\lambda_1(A^c\cap(a,a+\delta])\geq\lambda_1(A\cap(a,a+\frac{\delta}{2}])=\lambda_1(A\cap(a,a+\delta])-\lambda_1(A\cap(a+\frac{\delta}{2},a+\delta])\geq0.999\delta-0.5\delta=0.499\delta$; a contradiction. hence $(0,\frac{\delta}{2}]\subseteq A\ominus A$.
 \end{enumerate}
 
 
@@ -245,6 +247,9 @@ $\lambda_1(A)=\text{inf }\{\sum_{n=1}^\infty\lambda(I_n):A\subseteq\bigcup_{n=1}
 \begin{exercise}
     Suppose $X$ is a non-empty set and $\mathcal{D}$ is a $\pi$-system in $X$. Show that for any $k \in \mathbb{N}$, if $A_i \in \mathcal{D}$ for $i = 1, 2, \ldots, k$ then $\bigcap_{i=1}^{k} A_i \in \mathcal{D}$.
 \end{exercise}
+\begin{proof}
+Induction.
+\end{proof}
 \begin{exercise}
     Let $\mathcal{I}$ denote the class of half-open intervals in $\mathbb{R}$, together with the empty set (as in the lecture notes). Define the set-function $\pi : \mathcal{I} \to [0, \infty]$ by
     \[
@@ -256,7 +261,13 @@ $\lambda_1(A)=\text{inf }\{\sum_{n=1}^\infty\lambda(I_n):A\subseteq\bigcup_{n=1}
     \]
     Show that $\pi$ has more than one extension to a measure on $\mathcal{B} = \sigma(\mathcal{I})$. What condition of the (Uniqueness theorem) failed here?
 \end{exercise}
-
+\begin{proof}
+The counting measure and $\mu:\mathcal{B}\to[0,\infty]$ given by $\mu(A) :=
+    \begin{cases}
+        0 & \text{if } A = \emptyset; \\
+        \infty & \text{if } A \neq \emptyset.
+    \end{cases}$ are both extensions of $\pi$ to a measure on $\mathcal{B}$. The uniqueness theorem failed because $\pi$ is not $\sigma$-finite.
+\end{proof}
 \begin{exercise}
 Show that $\lambda_1$ has the scaling property: for any real number $c \neq 0$ and any Borel set $B \in \mathcal{B}$, we have $\lambda_1(cB) = |c| \lambda_1(B)$. Here $cB$ is defined to be the set $\{cx : x \in B\}$.
 \end{exercise}
