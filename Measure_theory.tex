@@ -271,6 +271,9 @@ The counting measure and $\mu:\mathcal{B}\to[0,\infty]$ given by $\mu(A) :=
 \begin{exercise}
 Show that $\lambda_1$ has the scaling property: for any real number $c \neq 0$ and any Borel set $B \in \mathcal{B}$, we have $\lambda_1(cB) = |c| \lambda_1(B)$. Here $cB$ is defined to be the set $\{cx : x \in B\}$.
 \end{exercise}
+\begin{proof}
+Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>0$. Then $c(a,b]=(ca,cb]$ so $\lambda_1(c(a,b])=cb-ca=|c|\lambda_1((a,b])$. Now let $c<0$. Then $c(a,b]=[cb,ca)$ so $\lambda_1(c(a,b])=cb-ca=-c(a-b)=|c|\lambda_1((a,b])$. The result then obviously holds for unbounded intervals. Now let $B$ be any Borel set. Given any $\epsilon>0$ there exists a countable collection $I_1,I_2,...$ of half-open intervals such that $B\subseteq\bigcup_{n=1}^\infty I_n$ and $\sum_{n=1}^\infty\lambda_1(I_n)<\epsilon+\lambda_1(B)$. We then have $cB\subseteq c\bigcup_{n=1}^\infty I_n=\bigcup_{n=1}^\infty cI_n$ and hence $\lambda_1(cB)\leq\sum_{n=1}^\infty\lambda_1(cI_n)=\sum_{n=1}^\infty|c|\lambda_1(I_n)=|c|\sum_{n=1}^\infty\lambda_1(I_n)\leq|c|(\epsilon+\lambda_1(B))$. $\epsilon$ is arbitrary so $\lambda_1(cB)\leq|c|\lambda_1(B)$. We then also have $\lambda_1(B)=\lambda_1(\frac{1}{c}cB)\leq|\frac{1}{c}|\lambda_1(cB)$ and hence $|c|\lambda_1(B)\leq\lambda_1(cB)$. Thus $\lambda_1(cB)=|c|\lambda_1(B)$.
+\end{proof}
 \begin{exercise} 
     Suppose $\mu$ is a translation-invariant measure on $(\mathbb{R}, \mathcal{B})$. Set $\gamma := \mu((0, 1])$ and assume $0 < \gamma < \infty$.
     \begin{enumerate}
