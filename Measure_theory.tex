@@ -316,6 +316,12 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
         \item[] \textit{Hint: The result from Question 23 might be useful.}
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] We have $\sum_{i=1}^k\pi(A_i)=\pi(\bigcup_{i=1}^k A_i)$. Let $B_1=A$ and $B_i=\emptyset\forall i>1$. $\bigcup_{i=1}^k A_i\subseteq\bigcup_{i=1}^\infty B_i$ so by countable sub-additivity $\sum_{i=1}^k\pi(A_i)=\pi(\bigcup_{i=1}^k A_i)\leq\sum_{i=1}^\infty\pi(B_i)=\pi(A)$.
+    \item[(b)] There is a unique measure $\pi^*$ on $\sigma(\mathcal{S})$ which agrees with $\pi$ on $\mathcal{S}$. Measures have countable additivity so $\pi^*(\bigcup_{n=1}^\infty A_n)=\sum_{n=1}^\infty\pi^*(A_n)$. $\bigcup_{n=1}^\infty A_n,A_1,A_2,...\in\mathcal{S}$ so $\pi(\bigcup_{n=1}^\infty A_n)=\sum_{n=1}^\infty\pi(A_n)$.
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Let $F : (-\infty, \infty) \to \mathbb{R}$ be a non-decreasing, right-continuous function (right continuity is defined in Question 10).
 
@@ -328,10 +334,15 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
         \item[(b)] Show that the set function $\lambda_F$ is finitely sub-additive on $\mathcal{I}$, the class of bounded half-open intervals in $\mathbb{R}$. That is, show that if $A, A_1, A_2, \dots, A_n \in \mathcal{I}$ with $A \subseteq \bigcup_{i=1}^n A_i$, then $\lambda_F(A) \leq \sum_{i=1}^n \lambda_F(A_i)$.
         \item[(c)] Show that $\lambda_F$ is finitely additive on $\mathcal{I}$. That is, show that if $A_1, A_2, \dots, A_n \in \mathcal{I}$ are pairwise disjoint with $A = \bigcup_{i=1}^n A_i \in \mathcal{I}$, then $\lambda_F(A) = \sum_{i=1}^n \lambda_F(A_i)$.
         \item[(d)] Show that $\lambda_F$ is countably sub-additive on $\mathcal{I}$. That is, show that if $A, A_1, A_2, \dots \in \mathcal{I}$ with $A \subseteq \bigcup_{i=1}^\infty A_i$, then $\lambda_F(A) \leq \sum_{i=1}^\infty \lambda_F(A_i)$.
-        \item[] \textit{Hint: For (b) and (c), adapt the proof of Lemma 4.1. For (d), adapt the proof of Theorem 4.2.}
     \end{enumerate}
 \end{exercise}
-
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let $I=(a,b]$ for $b>a$. $F$ is non-decreasing so $F(b)\geq F(a)$ and so $\lambda_F(I)=F(b)-F(a)\geq0$.
+    \item[(b)] We induct on $n$. For $n=1$, $\lambda_F(A)\leq\lambda_F(A_1)$. Assume true for $n=k$. Then for $n=k+1$, write $A$ as $(a,b]$ and $A_i$ as $(a_i,b_i]$. Without loss of generality, let $b_1\leq b_2\leq...\leq b_n$. Further, assume that $A_{k+1}\cap A\neq\emptyset$, since otherwise $A\subseteq\bigcup_{i=1}^k A_i$ so by the inductive hypothersis $\lambda_F(A)\leq\sum_{i=1}^k\lambda_F(A_i)\leq\sum_{i=1}^{k+1}\lambda_F(A_i)$. $A\subseteq\bigcup_{i=1}^n A_i$ so $b_n\geq b$. Furthermore, $a_n\leq b$ since $A_n\cap A\neq\emptyset$. If $a_n\leq a$ then $\lambda_F(A)\leq\lambda_F(A_n)$ so the result holds. If instead $a_n\in(a,b)$ then $(a,a_n]\subseteq\bigcup_{i=1}^k A_i$. Then by the inductive hypothesis $\lambda_F(A)=(b-a_n)+(a_n-a)=\lambda_F((a_n,b])+\lambda_F((a,a_n])\leq\lambda_F(A_n)+\sum_{i=1}^k\lambda_F(A_i)=\sum_{i=1}^n\lambda_F(A_i)$.
+    \item[(c)] We induct on $n$. For $n=1$ it's immediate. Assume true for $n=k$. For $n=k+1$, again assume without loss of generality that $b_1\leq b_2\leq...\leq b_n$. We have $b_n=b$ and $a_n\geq a$ so $(a,a_n]=\bigcup_{i=1}^kA_i$. Thus the inductive hypothesis gives $\lambda_F(A)=(b-a_n)+(a_n-a)=\lambda_F((a_n,b])+\lambda_F((a,a_n])=\lambda_F(A_n)+\sum_{i=1}^k\lambda_F(A_i)=\sum_{i=1}^n\lambda_F(A_i)$.
+\end{enumerate}
+\end{proof}
 \begin{exercise} 
     \begin{enumerate}
         \item[(a)] Show that if $U \subseteq \mathbb{R}^2$ is open and $x \in U$, then we can find a rectangle $R \subseteq \mathbb{R}^2$ with corners having rational coordinates such that $x \in R \subseteq U$. 
@@ -532,6 +543,112 @@ Let \( f : \mathbb{R} \to \mathbb{R} \) be integrable. Suppose \( \{h_n\}_{n \ge
 \end{exercise}  
 \begin{exercise}
 Let \( (X, \mathcal{M}, \mu) \) be a \(\sigma\)-finite measure space. Suppose \( f, f_1, f_2, \dots \in L^1(X) \) such that \( f_n \to f \) pointwise and moreover \( f_n \in L^1(\mu) \) and \( \sup_n \int f_n d\mu < \infty \). Show that \( f \in L^1(\mu) \) and \( \int f d\mu \to \int f_n d\mu \) as \( n \to \infty \).
+\end{exercise}
+
+\begin{exercise}
+Let $-\infty < a < b < \infty$. Suppose $g : [a, b] \to \mathbb{R}$ is a continuously differentiable, strictly increasing function. Show that for all bounded Borel-measurable $f : (a, b] \to \mathbb{R}$ we have the change of variables formula $\int_{g(a)}^{g(b)} f(y)dy = \int_{a}^{b} f(g(x))g'(x)dx$. 
+
+\textit{Hint: First verify this for $f = \mathbf{1}_{(g(a),a]}$ with $g(a) < t \leq g(b)$. Then use the Monotone Class theorem.}
+\end{exercise}
+\bigskip
+
+\begin{exercise}
+\begin{itemize}
+    \item[(a)] Show that $\{(x,y) \in \mathbb{R}^2 : x < y\} \in \mathcal{B} \otimes \mathcal{B}$.
+    \item[(b)] Let $c \in (0,\infty)$. Show that $\{(x,y) \in \mathbb{R}^2 : x < y \leq x + c\} \in \mathcal{B} \otimes \mathcal{B}$.
+    \item[(c)] Suppose $\mu$ is a probability measure on $(\mathbb{R}, \mathcal{B})$. For $x \in \mathbb{R}$, let $F(x) = \mu((-\infty, x])$. Let $c \in \mathbb{R}$. Use Fubini’s Theorem to show that $\int_{-\infty}^{\infty} (F(x+c) - F(x))dx = c$.
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}
+For $d \in \mathbb{N}$ let $\lambda_d$ denote $d$-dimensional Lebesgue measure.
+\begin{itemize}
+    \item[(a)] Show that $\lambda_2$ and $\lambda_1 \otimes \lambda_1$ are the same measure on $(\mathbb{R}^2, \mathcal{B}_2)$.
+    \item[(b)] Let $A \subset \mathbb{R}^2$ be a Borel set, and for $x \in \mathbb{R}$ let $A_x := \{y \in \mathbb{R} : (x, y) \in A\}$. Show that
+    \[
+    \lambda_2(A) = \int_{-\infty}^{\infty} \lambda_1(A_x)dx.
+    \]
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}
+For $A \subset \mathbb{R}^d$ and $u \in \mathbb{R}^d$ let $A + u := \{a + u : a \in A\}$. Also if $d = 2$, for $x \in \mathbb{R}$ set $A_x := \{y \in \mathbb{R} : (x, y) \in A\}$.
+\begin{itemize}
+    \item[(a)] Let $-\infty < a < b < \infty$, and let $I = (a,b)$. Let $y \in (0,\infty)$. Compute $\lambda_1((I + y) \setminus I)$.
+    \item[(b)] Let $B \subset [0,1]^2$ and suppose $B$ is open (see Question 26) and $B$ is convex, i.e. for all $u,v \in B$ and $\alpha \in (0,1)$, we have $\alpha u + (1-\alpha)v \in B$. Let $e$ be the unit vector $(0,1)$ and for $t > 0$ let $B(t) := B + te$. Given $x \in \mathbb{R}$, show that $B(t)_x = B_x + t$.
+    \item[(c)] Let $B$ be as in Part (b). Show that $\lambda_1((B(t) \setminus B)_x) = \min(t, \lambda_1(B_x))$.
+    \item[(d)] Let $B$ be as in Part (b). Show that $\lambda_2(B(t) \setminus B) \leq t$.
+    \item[(e)] Let $B$ be as in Part (b). Let $\pi_2 : \mathbb{R}^2 \to \mathbb{R}$ denote projection onto the first co-ordinate, i.e. for $(x,y) \in \mathbb{R}^2$ we set $\pi_2((x,y)) = x$. Show that $\lambda_2(B(t) \setminus B) \to \lambda_1(\pi_2(B))$ as $t \downarrow 0$.
+    
+    \textit{[The hint for Question 45 is also relevant here.]}
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}
+Let $(X, \mathcal{M})$ be a measurable space and suppose $f : X \to [0,\infty]$ and $g : X \to [0,\infty]$ are Borel functions. Show that
+\[
+\int_{0}^{\infty} \int_{0}^{\infty} \mu(\{x \in X : f(x) > s, g(x) > t\})dsdt = \int_{X} f(x)g(x)\mu(dx).
+\]
+\end{exercise}
+
+
+\begin{exercise}
+\begin{itemize}
+    \item[(a)] Let $\alpha \in \mathbb{R}$ be a fixed constant. Show that if $x \mapsto x^{\alpha}$ for $x \in (0,1]$. Determine the values of $p \in (1,\infty]$ on which $x^{\alpha} \in L^p((0,1])$.
+    \item[(b)] Let $\alpha \in \mathbb{R}$, and let $g(x) = x^{\alpha}$ for $x \in [0,1]$. Determine for values of $\alpha$ when $g \in L^p([1,\infty])$.
+\end{itemize}
+
+\textit{In this question, for any measure $\mu$ on $\mathbb{R}$ we write $L^p(\mu)$ for the $L^p$-space (in the sense of Definition 12.3) with it taken to be Lebesgue measure on the space $X = \mathbb{R}$ with the Borel $\sigma$-algebra.}
+\end{exercise}
+
+\begin{exercise}
+Let $p \in [1, \infty)$ and let $f \in L^p(\mathbb{R})$. Let $(a_n)_{n \geq 1}$ and $(b_n)_{n \geq 1}$ be real-valued sequences such that $\sum_{n=1}^{\infty} |a_n| < \infty$. Show that the sequence of functions $f_n(x) := \sum_{k=1}^{n} a_k f(x - b_k)$ converges in $L^p(\mathbb{R})$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $(a_n)_{n \geq 1}$ and $(b_n)_{n \geq 1}$ are sequences of nonnegative numbers, such that $A := \sum_{n=1}^{\infty} a_n^{4/3} < \infty$ and $B := \sum_{n=1}^{\infty} b_n^4 < \infty$. Show that $\sum_{n=1}^{\infty} a_n b_n \leq A^{3/4} B^{1/4}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $(X, \mathcal{M}, \mu)$ is a $\sigma$-finite measure space, and $1 \leq p < q < \infty$.
+\begin{itemize}
+    \item[(a)] Show that if $\mu$ is a probability measure and $f \in L^q(\mu)$, then $\|f\|_p \leq \|f\|_q$.
+
+    \textit{[Hint: note that $f = f \cdot 1$, and apply Hölder’s inequality]}
+    
+    \item[(b)] Show that if $\mu(X) < \infty$ then $L^q(\mu) \subset L^p(\mu)$.
+    
+    \item[(c)] Give an example to show that if $\mu(X) = \infty$, then we might not have $L^q(\mu) \subset L^p(\mu)$.
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}
+Let $(X, \mathcal{M}, \mu)$ be a $\sigma$-finite measure space. Let $p \in (1, \infty)$. Suppose $f \in \mathbb{R}(X)$ and (for all $n \in \mathbb{N}$) $f_n \in \mathbb{R}(X)$, with $\sum_{n=1}^{\infty} \|f_n\|_p < \infty$. For all $n \in \mathbb{N}$ and $x \in X$, set
+\[
+g_n(x) = \sum_{k=1}^{n} |f_k(x)| \quad \text{and} \quad g_{\infty}(x) = \sum_{k=1}^{\infty} |f_k(x)|.
+\]
+\begin{itemize}
+    \item[(i)] Show that $\|g_n\|_p \to \|g_{\infty}\|_p$ as $n \to \infty$, and deduce that $\|g_{\infty}\|_p < \infty$.
+    
+    \item[(ii)] Show that the function $h(x) := \sum_{m=1}^{\infty} f_n(x)$ is well-defined and finite $\mu$-a.e., that is, the sum converges for $\mu$-a.e. $x \in X$.
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}
+Let $W \in \mathcal{B}$, and for $f, g \in L^2(W)$, write $\langle f, g \rangle = \int_W f(x)g(x)dx$. Show that if also $h \in L^2(W)$ and $a, b \in \mathbb{R}$ then $\langle f, g + h \rangle = \langle f, g \rangle + \langle f, h \rangle$.
+\end{exercise}
+
+\begin{exercise}
+For $n \in \mathbb{N}$, let $f_n(x) = \sin(n x)$.
+\begin{itemize}
+    \item[(a)] Show that for $n, m \in \mathbb{N}$ with $n \neq m$ we have $\int_0^{2\pi} f_n(x) f_m(x)dx = 0$.
+    
+    \textit{[Hint: recall that $\cos(a + b) = \cos a \cos b - \sin a \sin b$.]}
+    
+    \item[(b)] Show that $\|f_n\|_2^2 = \sum_{k=1}^{n} k^{-1}$. Show that in $L^2([0,2\pi])$ we have $\|g_n\|_2^2 = \pi \sum_{k=1}^{n} k^{-2}$.
+    
+    \item[(c)] Prove that there exists $g \in L^2([0,2\pi])$ such that $g_n \to g$ in $L^2([0,2\pi])$ as $n \to \infty$.
+\end{itemize}
 \end{exercise}
 
 \end{document}
