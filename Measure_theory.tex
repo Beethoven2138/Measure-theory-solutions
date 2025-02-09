@@ -319,7 +319,7 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
 \begin{proof}
 \begin{enumerate}
     \item[(a)] We have $\sum_{i=1}^k\pi(A_i)=\pi(\bigcup_{i=1}^k A_i)$. Let $B_1=A$ and $B_i=\emptyset\forall i>1$. $\bigcup_{i=1}^k A_i\subseteq\bigcup_{i=1}^\infty B_i$ so by countable sub-additivity $\sum_{i=1}^k\pi(A_i)=\pi(\bigcup_{i=1}^k A_i)\leq\sum_{i=1}^\infty\pi(B_i)=\pi(A)$.
-    \item[(b)] There is a unique measure $\pi^*$ on $\sigma(\mathcal{S})$ which agrees with $\pi$ on $\mathcal{S}$. Measures have countable additivity so $\pi^*(\bigcup_{n=1}^\infty A_n)=\sum_{n=1}^\infty\pi^*(A_n)$. $\bigcup_{n=1}^\infty A_n,A_1,A_2,...\in\mathcal{S}$ so $\pi(\bigcup_{n=1}^\infty A_n)=\sum_{n=1}^\infty\pi(A_n)$.
+    \item[(b)] By countable sub-additivity we have $\pi(\bigcup_{n=1}^\infty A_n)\leq \sum_{n=1}^\infty\pi(A_n)$. Also, $\forall N\in\mathbb{N}$ we have $\sum_{n=1}^N\pi(A_n)\leq\pi(\bigcup_{n=1}^\infty A_n)$ so $\sum_{n=1}^\infty\pi(A_n)=\lim_{N\to\infty}\sum_{n=1}^N\pi(A_n)\leq\pi(\bigcup_{n=1}^\infty)$. Thus $\pi(\bigcup_{n=1}^\infty A_n)=\sum_{n=1}^\infty\pi(A_n)$.
 \end{enumerate}
 \end{proof}
 \begin{exercise}
