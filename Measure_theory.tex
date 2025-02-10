@@ -352,6 +352,12 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
         \item[(b)] Show that $\sigma(\mathcal{O}_2) = \mathcal{B}_2$, where $\mathcal{O}_2$ is the class of all open sets in $\mathbb{R}^2$, and $\mathcal{B}_2$ is the Borel $\sigma$-algebra in $\mathbb{R}^2$ (see Definition 8.1).
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] There exists a disc or radius $r$ centred at $x=(x_1,x_2)$, $B_r(x)$, such that $B_r(x)\subseteq U$. Let $P$ be the square centred at $x$ that is oriented parallel to the $x$ and $y$ axes and with vertices touching $\partial B_r(x)$. Let the vertices of $P$ be given by $(a,b),(a+t,b),(a,b+t),(a+t,b+t)$ where $t>0$. By the density of $\mathbb{Q}$ in $\mathbb{R}$ there exists rational numbers $q,r,v,w$ such that $q\in(a,x_1),r\in(x_1,a+t),v\in(b,x_2),w\in(x_2,b+t)$. Then let $R:=(q,r]\times(v,w]$.
+    \item[(b)] Let $U\in\mathcal{O}_2$. Let $S\subseteq\mathcal{P}(\mathcal{R}_2)$ be the set of all rectangles with rational coordinates that are contained within $U$. Clearly $\bigcup_{R\in S}R\subseteq U$. Furthermore, $\forall x\in U:\exists R\in S:x\in R$ so $U\subseteq\bigcup_{R\in S}R$ and hence $\bigcup_{R\in S}R=U$. $S$ is in bijection with a subset of $\mathbb{Q}^4$ since each rectangle is determined by four points. $\mathbb{Q}^4$ is countable so $S$ is countable as well. Hence $U$ is a countable union of sets in $\mathcal{R}_2$ so $U\in\sigma(\mathcal{R}_2)$. Thus $\mathcal{O}_2\subseteq\sigma(\mathcal{R}_2)=\mathcal{B}_2$ so $\sigma(\mathcal{O}_2)\subseteq\mathcal{B}_2$. Now let $A:=(a,b]\times(x,y]\in\mathcal{R}_2$. $A=(a,\infty)\times(x,\infty)\setminus((b,\infty)\times(x,\infty)\cup(a, \infty)\times(y,\infty))\in\sigma(\mathcal{O}_2)$ so $\mathcal{R}_2\subseteq\sigma(\mathcal{O}_2)$ and hence $\mathcal{B}_2=\sigma(\mathcal{R}_2)\subseteq\sigma(\mathcal{O}_2)$. Thus $\sigma(\mathcal{O}_2)=\mathcal{B}_2$.
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Suppose $\rho$ is a rotation on $\mathbb{R}^2$, i.e., pre-multiplication by a $2 \times 2$ matrix $M$ with $M^\top = M^{-1}$ (viewing elements of $\mathbb{R}^2$ as column vectors). Let $\lambda_2$ denote 2-dimensional Lebesgue measure (see Definition 8.10).
     \begin{enumerate}
