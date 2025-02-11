@@ -368,6 +368,18 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
         \textit{You may use without proof the fact that every translation-invariant measure $\nu$ on $(\mathbb{R}^2, \mathcal{B}_2)$ is of the form $\nu = c \times \lambda_2$ for some constant $c$.}
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] $|\rho(x)|=\sqrt{\rho(x)\cdot\rho(x)}=\sqrt{(Mx)^T(Mx)}=\sqrt{x^TM^TMx}=\sqrt{x^Tx}=\sqrt{x\cdot x}=|x|$.
+    \item[(b)] Let $\mathcal{M}$ be the set of $A\subseteq\mathbb{R}^2$ such that $\rho(A)\in\mathcal{B}_2$. Let $U\in\mathcal{O}_2$. Then $\rho(U)\in\mathcal{O}_2\subseteq\mathcal{B}_2$ so $\mathcal{O}_2\subseteq\mathcal{M}$. $\emptyset\in\mathcal{M}$ since $\rho(\emptyset)=\emptyset\in\mathcal{B}_2$. If $A\in\mathcal{M}$ then $\rho(A^c)=\rho(A)^c\in\mathcal{B}_2$ so $\mathcal{M}$ is closed under complements. If $A_1,A_2,...\in\mathcal{M}$ then $\rho(\bigcup_{i=1}^\infty A_i)=\bigcup_{i=1}^\infty\rho(A_i)\in\mathcal{B}_2$ so $\mathcal{M}$ is closed under countable unions. Thus $\mathcal{M}$ is a $\sigma$-algebra and so $\mathcal{B}_2=\sigma(\mathcal{O}_2)\subseteq\mathcal{M}$. Thus $\rho(A)\in\mathcal{B}_2\forall A\in\mathcal{B}_2$.
+    \item[(c)] Let $x\in\mathbb{R}^2$ and let $A\in\mathcal{B}_2$. Assume that $\mu(A)<\infty$. Let $\epsilon>0$. There exist $R_1,R_2,...\in\mathcal{R}_2$ such that $A\subseteq\bigcup_{i=1}^\infty R_i$ and $\sum_{i=1}^\infty\mu(R_i)<\mu(A)+\epsilon$. Then $\rho(A+x)\subseteq\bigcup_{i=1}^\infty\rho(R_i+x)$
+
+    Define $\nu:\mathcal{B}_2\to[0,\infty]:A\mapsto\lambda_2(\rho(A+x))$. $\nu(\emptyset)=\lambda_2(\rho(\emptyset))=\lambda_2(\emptyset)=0$. Let $A_1,A_2,...\in\mathcal{B}_2$ be disjoint. Then \begin{align*}      
+    \nu(\bigcup_{i=1}^\infty A_i)&=\lambda_2(\rho((\bigcup_{i=1}^\infty A_i) +x))\\&=\lambda_2(\rho(\bigcup_{i=1}^\infty(A_i+x)))\\&=\lambda_2(\bigcup_{i=1}^\infty\rho(A_i+x))\\&=\sum_{i=1}^\infty\lambda_2(\rho(A_i+x))\\&=\sum_{i=1}^\infty\nu(A_i).
+    \end{align*} Thus $\nu$ is a measure. Let $R:=(a,b]\times(x,y]\in\mathcal{R}_2$. Then $\nu(R)=\lambda_2(\rho(R+x))=\lambda_2(\rho(R)+\rho(x))=\lambda_2(\rho(R))=\mu(R)$ since $\lambda_2$ is translation invariant. $\mathcal{R}_2$ is a $\pi$-system, $\sigma(\mathcal{R}_2)=\mathcal{B}_2$ and $\mu$ is $\sigma$-finite on $\mathcal{R}_2$ so by the uniqueness lemma $\nu$ agrees with $\mu$ on $\mathcal{B}_2$.
+    \item[(d)] Define $\mu:\mathcal{B}_2\to[0,\infty]:A\mapsto\lambda_2(\rho(A))$. Given $x\in\mathbb{R}^2,A\in\mathcal{B}_2$, $\mu(A+x)=\lambda_2(\rho(A+x))=\lambda_2(\rho(A)+\rho(x))=\lambda_2(\rho(A))=\mu(A)$ so $\mu$ is translation-invariant and thus of the form $c\times\lambda_2$ for some $c\in\mathbb{R}$. Let $A:=B_1((0,0))$. Then $\rho(A)=A$ so $\mu(A)=c\lambda_2(A)=\lambda_2(A)$ and hence $c=1$ so $\lambda_2$ is rotation-invariant.
+\end{enumerate}
+\end{proof}
 \begin{exercise} 
     \begin{enumerate}
         \item[(a)] Show that $\lambda_2(L) = 0$ for any line segment $L \subseteq \mathbb{R}^2$. \textit{[You may use the result from Question 27 without proof.]} 
@@ -375,6 +387,12 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
         \textit{You may use without proof the ‘half base times height’ formula for the Lebesgue measure (area) of a triangle. You may also use without proof the fact that $(\sin x)/x \to 1$ as $x \to 0$.}
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Suppose that $\lambda_2(L)>0$. Since $\lambda_2$ is translation-invariant, assume without loss of generality that an end-point of $L$ is $(0,0)$. Let $R$ be the length of $L$. Let $\rho_n$ be a rotation of $\frac{2\pi}{n}$ radians and let $A:=\bigcup_{n=1}^\infty\rho_n(L)$. $A\subseteq \overline{B_R((0,0))}$ so $\lambda_2(A)=\sum_{n=1}^\infty\lambda_2(\rho_n(L))=\sum_{n=1}^\infty\lambda_2(L)=\infty\leq\lambda_2(\overline{B_R((0,0))})<\infty$; a contradiction. Thus $\lambda_2(L)=0$.
+    \item[(b)] Let $A_i$ be the interior of a regular $3\cdot2^i$-sided polygon centred at the origin with a vertex at $(r,0)$. $\lambda_2(A_i)=3\cdot2^i\frac{r^2\sin(\frac{2\pi}{3\cdot2^i})}{2}$. Furthermore, $A_i\subseteq A_{i+1}\forall i$ and $\bigcup_{i=1}^\infty A_i=D$ so by upward continuity \begin{align*}\lambda_2(D)&=\lim_{i\to\infty}\frac{3\cdot2^i}{2}r^2\sin(\frac{2\pi}{3\cdot2^i})\\&=\frac{r^2}{2}\lim_{i\to\infty}i\sin(\frac{2\pi}{i})\\&=\frac{r^2}{2}\lim_{n\to0^+}\frac{\sin(2\pi n)}{n}\\&=\frac{2\pi r^2}{2}\lim_{n\to0^+}\frac{\sin(2\pi n)}{2\pi n}\\&=\pi r^2.\end{align*}
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Suppose $F$ is a function with the properties assumed in Exercise 25.
     \begin{enumerate}
