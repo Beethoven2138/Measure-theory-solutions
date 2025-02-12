@@ -402,6 +402,15 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
     \end{enumerate}
     \textit{Remark: The measure $\mu_F$ is called the Lebesgue-Stieltjes measure corresponding to the function $F$.}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] $\lambda_F$ as defined in question $25$ is a $\sigma$-finite pre-measure on $\overline{\mathcal{I}}$ with the property that  $\lambda_F((a,b])=F(b)-F(a)$. Thus by the Caratheodory extension theorem there exists a unique measure $\mu_F$ on $(\mathbb{B},\mathcal{B})$ which agrees with $\lambda_F$ on $\mathcal{I}$.
+    \item[(b)] Let $A_n:=(y-\frac{1}{n},y]$. Then $A_{n+1}\subseteq A_n\forall n$, $\bigcap_{n=1}^\infty A_n=\{y\}$ and $\mu_F(A_1)<\infty$ so by downwards continuity $\mu_F(\{y\})=\lim_{n\to\infty}\mu_F(A_n)=\lim_{n\to\infty}(F(y)-F(y-\frac{1}{n}))=F(y)-F(y^-)$.
+    \item[(c)] Let $A_n:=(a-\frac{1}{n},b]$. Then as before $\mu_F([a,b])=\lim_{n\to\infty}(F(b)-F(a-\frac{1}{n}))=F(b)-F(a^-)$. Then \begin{align*}\mu_F((a,b))&=\mu_F([a,b])-\mu_F(\{a\})-\mu_F(\{b\})\\&=F(b)-F(a^-)-F(b)+F(b^-)-F(a)+F(a^-)\\&=F(b^-)-F(a).\end{align*} and \begin{align*}
+        \mu_F([a,b))&=\mu_F([a,b])-\mu_F(\{b\})\\&=F(b)-F(a^-)-F(b)+F(b^-)\\&=F(b^-)-F(a^-).
+    \end{align*}
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Prove that if $W \subseteq \mathbb{R}$ is a Borel set, and $f : W \to \mathbb{R}$ is an increasing function (i.e., $f(x) \leq f(y)$ whenever $x, y \in W$ with $x < y$), then $f$ is Borel measurable.
 \end{exercise}
