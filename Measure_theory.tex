@@ -414,6 +414,9 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
 \begin{exercise}
     Prove that if $W \subseteq \mathbb{R}$ is a Borel set, and $f : W \to \mathbb{R}$ is an increasing function (i.e., $f(x) \leq f(y)$ whenever $x, y \in W$ with $x < y$), then $f$ is Borel measurable.
 \end{exercise}
+\begin{proof}
+    Let $\alpha\in\mathbb{R}$ and let $t=\text{inf}(f^{-1}((\alpha,\infty]))$. Then $f^{-1}((\alpha,\infty])=W\cap (t,\infty)$ or  $f^{-1}((\alpha,\infty])=W\cap [t,\infty)$ (since the infimum of a set may or may not be contained in the set). The intersection of Borel sets is Borel and $W\cap (t,\infty),W\cap [t,\infty)\subseteq W$ so $f^{-1}((\alpha,\infty])\in\mathcal{B}_W$. Thus $f$ is Borel measurable.
+\end{proof}
 
 \begin{exercise}
 \begin{enumerate}
