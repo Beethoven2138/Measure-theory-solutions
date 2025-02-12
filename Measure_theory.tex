@@ -430,9 +430,18 @@ Let $(a,b]\in I$ be a half-open interval so that $\lambda_1((a,b])=b-a$. Let $c>
     \[
     \left\{ \omega \in \Omega : \lim\limits_{n \to \infty} \frac{1}{n} \sum_{i=1}^{n} Y_i(\omega) = \mu \right\}
     \]
-    is in \(\mathcal{F}\). Deduce that expressions like \( P[\lim\limits_{n \to \infty} \frac{1}{n} \sum_{i=1}^{n} Y_i = \mu] \) are meaningful.
+    is in \(\mathcal{F}\). Deduce that expressions like \( \mathbb{P}[\lim\limits_{n \to \infty} \frac{1}{n} \sum_{i=1}^{n} Y_i = \mu] \) are meaningful.
 \end{enumerate}
 \end{exercise} 
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Call the set $A$. 
+    Define \[B:=\{x\in X:\limsup_{n\to\infty}f_n(x)=-\infty\},\] \[C:=\{x\in X:\liminf_{n\to\infty}f_n(x)=\infty\}\] and \[D:=\{x\in X:\liminf_{n\to\infty}f_n(x)<\limsup_{n\to\infty}f_n(x)\}\] so that $A=(B\cup C\cup D)^c$. \[B=\bigcap_{k=1}^\infty(\limsup_{n\to\infty}f_n)^{-1}((-\infty,-k])\in\mathcal{M}\] and similarly $C\in\mathcal{M}$.\[D=(\liminf_{n\to\infty}f_n-\limsup_{n\to\infty}f_n)^{-1}((-\infty,0))\in\mathcal{M}.\] Thus $A\in\mathcal{M}$.
+    \item[(b)] Call the set $A$. Define the measurable function $g_n:\Omega\to\mathbb{R}:\omega\mapsto|\frac{1}{n}\sum_{i=1}^nY_i(\omega)-\mu|$. Then \begin{align*}
+        A&=\{\omega\in\Omega:\forall K\in\mathbb{N}:\exists N\in\mathbb{N}:\forall n>N:g_n(\omega)<\frac{1}{K}\}\\&=\{\omega\in\Omega:\forall K\in\mathbb{N}:\exists N\in\mathbb{N}:\forall n>N:\omega\in g_n^{-1}([0,\frac{1}{K}))\}\\&=\bigcap_{K=1}^\infty\bigcup_{N=1}^\infty\bigcap_{n>N}g_n^{-1}([0,\frac{1}{K})])\in\mathcal{F}.
+    \end{align*}
+\end{enumerate}
+\end{proof}
 \begin{exercise}
 Let \((X, \mathcal{M})\) be a measurable space.
 \begin{enumerate}   
@@ -441,6 +450,11 @@ Let \((X, \mathcal{M})\) be a measurable space.
 \item[(b)] Let \( f : X \to \mathbb{R} \) be a function with finite range \( f(X) = \{\alpha_1, \dots, \alpha_n\} \) (with \( \alpha_1, \dots, \alpha_n \) distinct), so that \( f = \sum_{i=1}^{n} \alpha_i \mathbf{1}_{A_i} \), where \( A_i = \{ x \in X : f(x) = \alpha_i \} \). Show that \( f \) is measurable if and only if \( A_1, \dots, A_n \in \mathcal{M} \).
 \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] 
+\end{enumerate}
+\end{proof}
 \begin{exercise}
 Suppose \((X, \mathcal{M}, \mu)\) is a \(\sigma\)-finite measure space and \( f : X \to [0, \infty] \) is measurable.
 \begin{enumerate}   
