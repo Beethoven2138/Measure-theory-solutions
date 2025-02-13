@@ -452,7 +452,14 @@ Let \((X, \mathcal{M})\) be a measurable space.
 \end{exercise}
 \begin{proof}
 \begin{enumerate}
-    \item[(a)] 
+    \item[(a)] Let $\alpha\geq 1$. Then $\mathbf{1}_E^{-1}((\alpha,\infty])=\emptyset\in\mathcal{M}$.
+
+    Now let $0\leq\alpha<1$. Then $\mathbf{1}_E^{-1}((\alpha,\infty])=E\in\mathcal{M}$.
+
+    Now let $\alpha<0$. Then $\mathbf{1}_E^{-1}((\alpha,\infty])=X\in\mathcal{M}$. Thus $\mathbf{1}_E$ is measurable.
+    \item[(b)] $(\impliedby)$ If $A_1,...,A_n\in\mathcal{M}$ then $\mathbf{1}_{A_i}$ is measurable $\forall i$ so $f$ is measurable as the sum of measurable functions.
+
+    $(\implies)$ $\{a_i\}$ is a Borel set so $f^{-1}(\{a_i\})=A_i\in\mathcal{M}\forall i$.
 \end{enumerate}
 \end{proof}
 \begin{exercise}
