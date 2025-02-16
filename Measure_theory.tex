@@ -497,12 +497,16 @@ If $s<f(x)$ and $t<g(x)$ then there are rational numbers $q\in(s,f(x))$ and $r\i
     
     [\textit{Hint: First show the class of \( A \subset X \times Y \) with \( A_{[y]} \in \mathcal{M} \) is a \(\sigma\)-algebra}]
     
-\item[(b)] Suppose \( f : X \to [0, \infty] \) is such that \( \{h f(y) \in \mathcal{M} \otimes \mathcal{B} \). Show that \( f \) is a measurable function.
+\item[(b)] Suppose \( f : X \to [0, \infty] \) is such that \( \text{hyp}(f) \in \mathcal{M} \otimes \mathcal{B} \). Show that \( f \) is a measurable function.
 \end{enumerate}
 \end{exercise}
 \begin{proof}
 \begin{enumerate}
-    \item[(a)]
+    \item[(a)] Let $y\in Y$. Let $\mathcal{U}:=\{A\subseteq X\times Y:A_{[y]}\in \mathcal{M}\}$. $\emptyset_{[y]}=\emptyset\in\mathcal{M}$ so $\emptyset\in\mathcal{U}$. Let $B\in\mathcal{U}$. Then \[(B^c)_{[y]}=\{x\in X:(x,y)\in B^c\}=\{x\in X:(x,y)\not\in B\}=(B_{[y]})^c\in\mathcal{M}\] so $\mathcal{U}$ is closed under complements. Now let $A_1,A_2,...\in\mathcal{U}$. Then \[(\bigcup_{i=1}^\infty A_i)_{[y]}=\{x\in X:(x,y)\in\bigcup_{i=1}^\infty A_i\}=\bigcup_{i=1}^\infty\{x\in X:(x,y)\in A_i\}=\bigcup_{i=1}^\infty {A_i}_{[y]}\in\mathcal{M}.\] Thus $\mathcal{U}$ is a $\sigma$-algebra. Let $C:=M\times N\in\mathcal{M}\times\mathcal{N}$. Then \[C_{[y]}=\{x\in X:(x,y)\in M\times N\}=\begin{cases}
+        M\text{ if }y\in N,\\
+        \emptyset\text{ otherwise}
+    \end{cases}\]so $C_{[y]}\in\mathcal{M}$. Thus $\mathcal{M}\times\mathcal{N}\subseteq\mathcal{U}$ so $\mathcal{M}\otimes\mathcal{N}=\sigma(\mathcal{M}\times\mathcal{N})\subseteq \mathcal{U}$. Thus given any $A\in\mathcal{M}\otimes\mathcal{N}$ we have $A_{[y]}\in\mathcal{M}$.
+    \item[(b)] Let $\alpha>0$. Then \begin{align*}f^{-1}((\alpha,\infty])&=\{x\in X:\alpha<f(x)\}\\&=\{x\in X:(x,\alpha)\in\text{hyp}(f)\}\\&=\text{hyp}(f)_{[\alpha]}\in\mathcal{M}.\end{align*} If $\alpha<0$, then $f^{-1}((\alpha,\infty])=X\in\mathcal{M}$. Otherwise, $f^{-1}((0,\infty])=\bigcup_{n=1}^\infty f^{-1}((\frac{1}{n},\infty])\in\mathcal{M}$. Thus $f$ is measurable.
 \end{enumerate}
 \end{proof}
 \begin{exercise}
