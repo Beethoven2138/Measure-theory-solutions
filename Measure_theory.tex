@@ -533,6 +533,12 @@ Suppose \( g : \mathbb{R} \to \mathbb{R} \) is integrable (with respect to Lebes
     [\textit{Hint: For part (a), start with the case where \( g \) is nonnegative and simple. Another way to write the result in (a) is \( \int h d\lambda_1 = \int g d\lambda_1 \), where we set \( h(x) = g(x - t) \)}]
 \end{enumerate}
 \end{exercise}    
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] First let $g$ be non-negative and simple, so that $g=\sum_{i=1}^n\alpha_i\mathbf{1}_{A_i}$ for $\alpha_1,...,\alpha_n\in\mathbb{R}_+$ and $A_1,...,A_n\in\mathcal{B}$ pairwise disjoint. Then $\int_{-\infty}^\infty g(x)dx=\sum_{i=1}^n\alpha_i\lambda_1(A_i)$. Let $h(x):=g(x-t)$. Then $h=\sum_{i=1}^n\alpha_i\mathbf{1}_{t+A_i}$ so \[\int_{-\infty}^\infty g(x-t)dx=\sum_{i=1}^n\alpha_i\lambda_1(t+A_i)=\sum_{i=1}^n\alpha_i\lambda_1(A_i)=\int_{-\infty}^\infty g(x)dx.\] Now let $g$ be non-negative but not necessarily simple. There exist non-negative simple functions $(g_n)_{n\in\mathbb{N}}$ such that $g_n\uparrow g$ and hence also $g_n(x-t)\uparrow g(x-t)$. Then by the monotone convergence theorem, \[\int_{-\infty}^\infty g(x-t)=\lim_{n\to\infty}\int_{-\infty}^\infty g_n(x-t)dx=\lim_{n\to\infty}\int_{-\infty}^\infty g_n(x)dx=\int_{-\infty}^\infty g(x)dx.\]Now let $g$ be any integrable function. Then \[\int_{-\infty}^\infty g(x-t)dx=\int_{-\infty}^\infty g(x-t)^+dx-\int_{-\infty}^\infty g(x-t)^-dx=\int_{-\infty}^\infty g(x)^+dx-\int_{-\infty}^\infty g(x)^-dx=\int_{-\infty}^\infty g(x)dx.\]
+    \item[(b)] \[\int_{a+t}^{b+t}g(x-t)dx=\int_{-\infty}^\infty g(x-t)\mathbf{1}_{(a+t,b+t)}(x)dx=\int_{-\infty}^\infty g(x)\mathbf{1}_{(a,b)}(x)dx=\int_a^b g(x)dx.\]
+\end{enumerate}
+\end{proof}
 \begin{exercise}
 Let \( \mu \) be counting measure on \( (\mathbb{N}, \mathcal{P}(\mathbb{N})) \).
 \begin{enumerate}   
@@ -546,7 +552,17 @@ Let \( \mu \) be counting measure on \( (\mathbb{N}, \mathcal{P}(\mathbb{N})) \)
     
 \item[(c)] Suppose \( h : \mathbb{N} \to \mathbb{R} \) with \( \sum_{n=1}^{\infty} |h(n)| < \infty \). Show that \( \int_{\mathbb{N}} h d\mu = \sum_{n=1}^{\infty} h(n) \).
 \end{enumerate}
-\end{exercise} 
+\end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] $f$ is simple the image of $f$ is a finite set $\{\alpha_1,...,\alpha_m\}$ so $\int_{\mathbb{N}}fd\mu=\sum_{i=1}^m\alpha_i\mu(f^{-1}(\{\alpha_i\}))$. $\mu(f^{-1}(\{\alpha_i\}))=\#\{n\in\mathbb{N}:f(n)=\alpha_i\}$ so \[\alpha_i\mu(f^{-1}(\{\alpha_i\}))=\sum_{n\in f^{-1}(\{\alpha_i\})}f(n).\] The fibres are pairwise disjoint so \[\int_{\mathbb{N}}fd\mu=\sum_{n\in\bigcup_{i=1}^mf^{-1}(\{\alpha_i\})}f(n)=\sum_{n\in\mathbb{N}}f(n)=\sum_{n=1}^kf(n)\] since $f(n)=0\forall n>k$.
+    \item[(b)] Define $g_k:\mathbb{N}\to[0,\infty)$ by \[g_k(n)=\begin{cases}
+        g(n)\text{ if }n\leq k,\\
+        0\text{ otherwise.}
+    \end{cases}\] Then $g_k\uparrow g$ so by the monotone convergence theorem \[\int_{\mathbb{N}}gd\mu=\lim_{k\to\infty}\int_{\mathbb{N}}g_kd\mu=\lim_{k\to\infty}\sum_{n=1}^kg(n)=\sum_{n=1}^\infty g(n).\]
+    \item[(c)] \begin{align*}\int_{\mathbb{N}}hd\mu&=\int_{\mathbb{N}}h^+-h^-d\mu\\&=\int_{\mathbb{N}}h^+d\mu-\int_{\mathbb{N}}h^-d\mu\\&=\sum_{n=1}^\infty h^+(n)-\sum_{n=1}^\infty h^-(n)\\&=\sum_{n=1}^\infty h^+(n)-h^-(n)\\&=\sum_{n=1}^\infty h(n).\end{align*}
+\end{enumerate}
+\end{proof}
 \begin{exercise}
 Let \( (X, \mathcal{M}, \mu) \) be a \(\sigma\)-finite measure space. Suppose \( F_1, \dots, F_n \) are subsets of \( X \) with \( F_i \in \mathcal{M} \) and \( \mu(F_i) < \infty \) for each \( i \in [n] \), where we set \( [n] := \{1, \dots, n\} \). For \( S \in \mathcal{P}([n]) \), i.e. \( S \subset [n] \), let \( |S| \) denote the number of elements of \( S \). Use the linearity of integration, and the fact that \( \mu(A) = \int_X 1_A \) for any \( A \in \mathcal{M} \), to prove the \textit{inclusion-exclusion formula}
     
