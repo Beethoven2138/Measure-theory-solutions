@@ -585,11 +585,19 @@ Let \( (X, \mathcal{M}, \mu) \) be a \(\sigma\)-finite measure space. Suppose \(
 \item[(b)] Show that \( f - h \in L^1(\mu) \) and \( h - g \in L^1(\mu) \) and \( \|f - g\|_1 \leq \|f - h\|_1 + \|h - g\|_1 \).
 \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] \[\|f+g\|_1=\int|f+g|d\mu\leq\int|f|+|g|d\mu=\int|f|d\mu+\int|g|d\mu=\|f\|_1+\|g\|_1.\]
+    \item[(b)] \[\int|f-h|d\mu\leq\int|f|+|h|d\mu=\|f\|_1+\|h\|_1<\infty\] so $f-h\in L^1(\mu)$. Similarly, $h-g\in L^1(\mu)$.\[\|f-g\|_1=\|(f-h)+(h-g)\|_1\leq\|f-h\|_1+\|h-g\|_1.\]
+\end{enumerate}
+\end{proof}
 \begin{exercise}
 A function \( f : \mathbb{R} \to \mathbb{R} \) is said to have \textit{bounded support} if there exists \( n \in \mathbb{N} \) such that \( f(x) = 0 \) whenever \( |x| > n \).
     
     Suppose \( f : \mathbb{R} \to \mathbb{R} \) is integrable (with respect to Lebesgue measure). Let \( \varepsilon > 0 \). Show that there exists integrable \( g : \mathbb{R} \to \mathbb{R} \) such that \( \int_{-\infty}^{\infty} |f(x) - g(x)|dx < \varepsilon \), and \( g \) has bounded support.
 \end{exercise}
+\begin{proof}
+\end{proof}
 \begin{exercise}
     A function \( g : \mathbb{R} \to \mathbb{R} \) is called a \textit{step function} if we can write \( g = \sum_{i=1}^{k} c_i 1_{I_i} \), for some \( k \in \mathbb{N} \), \( c_1, \dots, c_k \in \mathbb{R} \) and \( I_1, \dots, I_k \) intervals in \( \mathbb{R} \).
 
