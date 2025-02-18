@@ -24,7 +24,7 @@
 \newtheorem{exercise}[theorem]{Exercise}
 
 
-\title{Measure theory}
+\title{Measure Theory}
 \author{Saxon Supple}
 \date{January 2025}
 
@@ -572,6 +572,11 @@ Let \( (X, \mathcal{M}, \mu) \) be a \(\sigma\)-finite measure space. Suppose \(
     
     [\textit{Hint: for any sets \( G_1, \dots, G_k \in \mathcal{M} \) we have \( 1_{\cap_{i=1}^{k} G_i} = \prod_{i=1}^{k} 1_{G_i} \).}]
 \end{exercise}  
+\begin{proof}
+\[\mu(\bigcup_{i=1}^n F_i)=\int_X \mathbf{1}_{\bigcup_{i=1}^n F_i}d\mu.\] We prove by induction that \[\mathbf{1}_{\bigcup_{i=1}^nF_i}=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\mathbf{1}_{\bigcap_{j\in J}F_j}.\] For $n=1$ the statement is trivial. Now assume for $n=k$. Then for $n=k+1$, \begin{align*}\mathbf{1}_{\bigcup_{i=1}^{k+1}F_i}&=\mathbf{1}_{\bigcup_{i=1}^kF_i}+\mathbf{1}_{F_{k+1}}-\mathbf{1}_{\bigcup_{i=1}^k(F_i\cap F_{k+1})}\\&=\mathbf{1}_{F_{k+1}}+\sum_{J\in\mathcal{P}([k])\setminus\{\emptyset\}}(-1)^{|J|+1}\mathbf{1}_{\bigcap_{j\in J}F_j}-\sum_{J\in\mathcal{P}([k])\setminus\{\emptyset\}}(-1)^{|J|+1}\mathbf{1}_{\bigcap_{j\in J}F_j\cap F_{k+1}}\\&=\sum_{J\in\mathcal{P}([k])\setminus\{\emptyset\}}(-1)^{|J|+1}\mathbf{1}_{\bigcap_{j\in J}F_j}+\sum_{J\in\mathcal{P}([k])}(-1)^{|J|+2}\mathbf{1}_{\bigcap_{j\in J}F_j\cap F_{k+1}}\\&=\sum_{J\in\mathcal{P}([k+1])\setminus\{\emptyset\}}(-1)^{|J|+1}\mathbf{1}_{\bigcap_{j\in J}F_j}\end{align*} as required. Thus \begin{align*}
+    \mu(\bigcup_{i=1}^nF_i)&=\int_X\mathbf{1}_{\bigcup_{i=1}^nF_i}d\mu\\&=\int_X \sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\mathbf{1}_{\bigcap_{j\in J}F_j}d\mu\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset \}}(-1)^{|J|+1}\int_X\mathbf{1}_{\bigcap_{j\in J}F_j}d\mu\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset \}}(-1)^{|J|+1}\mu(\bigcap_{j\in J}F_j).
+\end{align*}
+\end{proof}
 \begin{exercise}
 Let \( (X, \mathcal{M}, \mu) \) be a \(\sigma\)-finite measure space. Suppose \( f,g,h \in L^1(\mu) \).
 \begin{enumerate}   
