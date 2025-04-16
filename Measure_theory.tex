@@ -649,7 +649,7 @@ Suppose \( (X, \mathcal{M}, \mu) \) is a measure space and \( F_n \subset X \) w
     \item[(a)] \begin{align*}\mu(E_n)&=\mu(\bigcup_{j=1}^n F_j)\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\mu(\bigcap_{j\in J}F_j)\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\nu(\bigcap_{j\in J}F_j)\\&=\nu(E_n)\end{align*} since any finite intersection of $F_j$s is contained in $\mathcal{D}$, other which $\mu$ and $\nu$ agree.
     Similarly, \begin{align*}\mu(A\cap E_n)&=\mu(A\cap \bigcup_{j=1}^n F_j)\\&=\mu(\bigcup_{j=1}^n (A\cap F_j))\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\mu(\bigcap_{j\in J}(A\cap F_j))\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\nu(\bigcap_{j\in J}(A\cap F_j))\\&=\nu(A\cap E_n).\end{align*}
 \end{enumerate}
-\end{proof}
+\end{proof}con
 \begin{exercise}
 Let \( (\Omega, \mathcal{F}, \mu) \) be a probability space. Let \( f : \Omega \to [0, \infty] \) be measurable, i.e. \( f \) is a nonnegative random variable. For \( t \geq 0 \) define \( L(t) := \int_{\Omega} e^{-tf(\omega)}\mu(d\omega) \) (the \textit{Laplace transform} of \( f \)).
     
@@ -678,6 +678,11 @@ Let \( (X, \mathcal{M}, \mu) \) be a \(\sigma\)-finite measure space. Show the f
         \item[(d)] If \( f : X \to \mathbb{R} \) and \( g : X \to \mathbb{R} \) are measurable functions, then \( \{ x \in X : f(x) \neq g(x) \} \in \mathcal{M} \).
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] If $\mu(E)=0$ then $\mu(\{x\in E:f(x)\neq 0\})=0$ since $\{x\in E:f(x)\neq 0\}\subseteq E$. Now assume $\mu(E)>0$. Suppose that $\mu(\{x\in E:f(x)\neq0\})> 0$. Let $A_n:=\{x\in E:|f(x)|>\frac{1}{n}\}$ and let $A:=\{x\in E:|f(x)|>0\}$. Then $A=\bigcup_{n=1}^\infty A_n$. Since $\mu(A)>0$ there exists an $N\in\mathbb{N}$ such that $\mu(A_N)>0$. Hence \[\int_E|f|d\mu\geq\int_{A_N}|f|d\mu\geq\int_{A_N}\frac{1}{N}=\frac{\mu(A_N)}{N}>0.\] Applying the contrapositive then gives the result.
+\end{enumerate}
+\end{proof}
 \begin{exercise}
 Let \( f : \mathbb{R} \to \mathbb{R} \) be integrable. Suppose \( \{h_n\}_{n \geq 1} \) is a sequence in \( \mathbb{R} \) such that \( h_n \to 0 \).
     
