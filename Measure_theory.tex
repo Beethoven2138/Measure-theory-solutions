@@ -680,7 +680,12 @@ Let \( (X, \mathcal{M}, \mu) \) be a \(\sigma\)-finite measure space. Show the f
 \end{exercise}
 \begin{proof}
 \begin{enumerate}
-    \item[(a)] If $\mu(E)=0$ then $\mu(\{x\in E:f(x)\neq 0\})=0$ since $\{x\in E:f(x)\neq 0\}\subseteq E$. Now assume $\mu(E)>0$. Suppose that $\mu(\{x\in E:f(x)\neq0\})> 0$. Let $A_n:=\{x\in E:|f(x)|>\frac{1}{n}\}$ and let $A:=\{x\in E:|f(x)|>0\}$. Then $A=\bigcup_{n=1}^\infty A_n$. Since $\mu(A)>0$ there exists an $N\in\mathbb{N}$ such that $\mu(A_N)>0$. Hence \[\int_E|f|d\mu\geq\int_{A_N}|f|d\mu\geq\int_{A_N}\frac{1}{N}=\frac{\mu(A_N)}{N}>0.\] Applying the contrapositive then gives the result.
+    \item[(a)] Suppose that $\mu(\{x\in E:f(x)\neq0\})> 0$. Let $A_n:=\{x\in E:|f(x)|>\frac{1}{n}\}$ and let $A:=\{x\in E:|f(x)|>0\}$. Then $A=\bigcup_{n=1}^\infty A_n$. Since $\mu(A)>0$ there exists an $N\in\mathbb{N}$ such that $\mu(A_N)>0$. Hence \[\int_E|f|d\mu\geq\int_{A_N}|f|d\mu\geq\int_{A_N}\frac{1}{N}=\frac{\mu(A_N)}{N}>0.\] Applying the contrapositive then gives the result.
+    \item[(b)] Let $A:=\{x\in X:f(x)>0\}$. Then \[\int_Afd\mu=0\] and hence $f=0$ almost everywhere on $A$ so $\mu(A)=0$. Similarly $\mu(\{x\in X:f(x)<0\})=0$ so $\mu(\{x\in X:f(x)\neq 0\})=0$ and hence $f=0$ almost everywhere on $X$.
+    \item[(c)] Let $A:=\{x\in X:f(x)\geq 0\}$ and let $B:=\{x\in X:f(x)\leq 0\}$. Then $|f|=f\mathbf{1}_A-f\mathbf{1}_B$ and so \[\int_X|f|d\mu=\int_Xf\mathbf{1}_A-f\mathbf{1}_Bd\mu.\] Furthermore, \[\int_Xfd\mu=\int_Xf\mathbf{1}_Ad\mu+\int_Xf\mathbf{1}_Bd\mu\] If \[\int_Xfd\mu\geq0\] then \[\int_Xf\mathbf{1}_Ad\mu+\int_Xf\mathbf{1}_Bd\mu=\int_Xf\mathbf{1}_Ad\mu-\int_Xf\mathbf{1}_Bd\mu\] and hence \[\int_Xf\mathbf{1}_Bd\mu=0,\] implying $f=0$ almost everywhere on $B$ and hence that $f\geq 0$ almost everywhere on $X$.
+
+    If instead\[\int_Xfd\mu\leq0\] then \[-\int_Xf\mathbf{1}_Ad\mu-\int_Xf\mathbf{1}_Bd\mu=\int_Xf\mathbf{1}_Ad\mu-\int_Xf\mathbf{1}_Bd\mu\] so \[\int_Xf\mathbf{1}_A=0\] so $f\leq0$ almost everywhere on $X$.
+    \item[(d)] $f-g$ is measurable so $\{x\in X:f(x)-g(x)=0\}\in\mathcal{M}$ and hence \[\{x\in X:f(x)\neq g(x)\}=\{x\in X:f(x)-g(x)=0\}^c\in\mathcal{M}.\]
 \end{enumerate}
 \end{proof}
 \begin{exercise}
