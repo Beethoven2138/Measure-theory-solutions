@@ -726,6 +726,13 @@ Let $f=\mathbf{1}_{(g(a),t]}$ with $g(a)<t\leq g(b)$. Then\[\int_{g(a)}^{g(b)}f(
     \item[(c)] Suppose $\mu$ is a probability measure on $(\mathbb{R}, \mathcal{B})$. For $x \in \mathbb{R}$, let $F(x) = \mu((-\infty, x])$. Let $c \in \mathbb{R}$. Use Fubini’s Theorem to show that $\int_{-\infty}^{\infty} (F(x+c) - F(x))dx = c$.
 \end{itemize}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Define $\pi_1:\mathbb{R}^2\to\mathbb{R}:(x,y)\mapsto x$ and $\pi_2:\mathbb{R}^2\to\mathbb{R}:(x,y)\mapsto y$. Given any $\alpha\in\mathbb{R}$ we have $\pi_1^{-1}((\alpha,\infty])=(\alpha,\infty)\times\mathbb{R}\in\mathcal{B}\otimes\mathcal{B}$ so $\pi_1$ is measurable. Similarly $\pi_2$ is measurable. Hence $\pi_1-\pi_2$ is measurable so\[\{(x,y)\in\mathbb{R}^2:x<y\}=(\pi_1-\pi_2)^{-1}((-\infty,0))\in\mathcal{B}\otimes\mathcal{B}.\]
+    \item[(b)] We have \[\{(x,y)\in\mathbb{R}^2:y\leq x+c\}=(\pi_2-\pi_1)((-\infty,c])\in\mathcal{B}\otimes\mathcal{B}\] so\[\{(x,y)\in\mathbb{R}^2:x<y\leq x+c\}=\{(x,y)\in\mathbb{R}^2:x<y\}\cap\{(x,y)\in\mathbb{R}^2:y\leq x+c\}\in\mathcal{B}\otimes\mathcal{B}.\]
+    \item[(c)] We have that \[F(y)=\int_\mathbb{R}\mathbf{1}_{(-\infty,y]}d\mu\forall y\in\mathbb{R}\] so\begin{align*}\int_{-\infty}^\infty(F(x+c)-F(x))dx&=\int_\mathbb{R}\int_\mathbb{R}\mathbf{1}_{(-\infty,x+c]}\mu(dy)-\int_\mathbb{R}\mathbf{1}_{(-\infty,x]}\mu(dy) \lambda_1(dx)\\&=\int_\mathbb{R}\int_\mathbb{R}\mathbf{1}_{(x,x+c]}\mu(dy)\lambda_1(dx)\\&=\int_\mathbb{R}\int_\mathbb{R}f(x,y)\mu(dy)\lambda_1(dx)\end{align*} where we let \[f:=\mathbf{1}_{\{(x,y)\in\mathbb{R}^2:x<y\leq x+c\}}.\] Since we have shown that $f$ is $\mathcal{B}\otimes\mathcal{B}$ and $f\geq 0$, Fubini's theorem implies that\[\int_{-\infty}^\infty(F(x+c)-F(x))dx=\int_\mathbb{R}\int_\mathbb{R}f(x,y)\lambda_1(dx)\mu(dy).\] For a fixed $y$, \[f_y:=\mathbf{1}_{\{x\in\mathbb{R}:x<y\leq x+c\}}=\mathbf{1}_{\{x\in\mathbb{R}:x<y\}}\mathbf{1}_{\{x\in\mathbb{R}:x\geq y-c\}}=\mathbf{1}_{[y-c,y)}\]so\[\int_\mathbb{R}\int_\mathbb{R}f(x,y)\lambda_1(dx)\mu(dy)=\int_\mathbb{R}\int_\mathbb{R}\mathbf{1}_{[y-c,y)}\lambda_1(dx)\mu(dy)=\int_\mathbb{R}cd\mu=c\int_\mathbb{R}d\mu.\] Since $\mu$ is a probability measure we have \[\int_\mathbb{R}d\mu=1\] so \[\int_{-\infty}^\infty(F(x+c)-F(x))dx=c\] as required.
+\end{enumerate}
+\end{proof}
 
 \begin{exercise}
 For $d \in \mathbb{N}$ let $\lambda_d$ denote $d$-dimensional Lebesgue measure.
