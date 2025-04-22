@@ -744,6 +744,12 @@ For $d \in \mathbb{N}$ let $\lambda_d$ denote $d$-dimensional Lebesgue measure.
     \]
 \end{itemize}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] $\lambda_2$ and $\lambda_1\otimes\lambda_1$ agree on the $\pi$-system $\mathcal{B}\times\mathcal{B}$ and $\lambda_1\otimes\lambda_1$ is $\sigma$-finite on $\mathcal{B}\times\mathcal{B}$ so $\lambda_2$ and $\lambda_1\otimes\lambda_1$ agree on $\sigma(\mathcal{B}\times\mathcal{B})=\mathcal{B}\otimes\mathcal{B}=\mathcal{B}_2$ by the uniqueness lemma.
+    \item[(b)] By Fubini's theorem and the above we have \begin{align*}\lambda_2(A)&=\int_{\mathbb{R}^2}\mathbf{1}_Ad\lambda_2\\&=\int_{\mathbb{R}^2}\mathbf{1}_Ad(\lambda_1\otimes\lambda_1)\\&=\int_\mathbb{R}\int_\mathbb{R}\mathbf{1}_{A_x}\lambda_1(dy)\lambda_1(dx)\\&=\int_\mathbb{R}\lambda_1(A_x)\lambda_1(dx)\\&=\int_{-\infty}^\infty\lambda_1(A_x)dx.\end{align*}
+\end{enumerate}
+\end{proof}
 
 \begin{exercise}
 For $A \subset \mathbb{R}^d$ and $u \in \mathbb{R}^d$ let $A + u := \{a + u : a \in A\}$. Also if $d = 2$, for $x \in \mathbb{R}$ set $A_x := \{y \in \mathbb{R} : (x, y) \in A\}$.
