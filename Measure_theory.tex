@@ -711,11 +711,13 @@ Let \( (X, \mathcal{M}, \mu) \) be a \(\sigma\)-finite measure space. Suppose \(
 \end{proof}
 
 \begin{exercise}
-Let $-\infty < a < b < \infty$. Suppose $g : [a, b] \to \mathbb{R}$ is a continuously differentiable, strictly increasing function. Show that for all bounded Borel-measurable $f : (a, b] \to \mathbb{R}$ we have the change of variables formula $\int_{g(a)}^{g(b)} f(y)dy = \int_{a}^{b} f(g(x))g'(x)dx$. 
+Let $-\infty < a < b < \infty$. Suppose $g : [a, b] \to \mathbb{R}$ is a continuously differentiable, strictly increasing function. Show that for all bounded Borel-measurable $f : (g(a), g(b)] \to \mathbb{R}$ we have the change of variables formula $\int_{g(a)}^{g(b)} f(y)dy = \int_{a}^{b} f(g(x))g'(x)dx$. 
 
-\textit{Hint: First verify this for $f = \mathbf{1}_{(g(a),a]}$ with $g(a) < t \leq g(b)$. Then use the Monotone Class theorem.}
+\textit{Hint: First verify this for $f = \mathbf{1}_{(g(a),t]}$ with $g(a) < t \leq g(b)$. Then use the Monotone Class theorem.}
 \end{exercise}
-\bigskip
+\begin{proof}
+Let $f=\mathbf{1}_{(g(a),t]}$ with $g(a)<t\leq g(b)$. Then\[\int_{g(a)}^{g(b)}f(y)dy=\int_\mathbb{R}\mathbf{1}_{(g(a),t]}\mathbf{1}_{(g(a),g(b))}d\mu=\int_{g(a)}^{t}dy=t-g(a)\] and\[\int_a^bf(g(x))g'(x)dx=\int_a^b\mathbf{1}_{g(x)\in(g(a),t]}g'(x)dx=\int_a^{g^{-1}(t)}g'(x)dx=[g(x)]_a^{g^{-1}(t)}=t-g(a).\] Thus the result holds in this case. Now let $\mathcal{H}$ be the set of bounded Borel-measurable functions $f:(g(a),g(b)]\to\mathbb{R}$ such that the change of variables formula holds and let \[\mathcal{D}:=\{(g(a),t]:g(a)<t\leq g(b)\}.\] Given $t_1,t_2\in(g(a),g(b)]$ we have $(g(a),t_1]\cap(g(a),t_2]=(g(a),\min(t_1,t_2)]\in\mathcal{D}$ so $\mathcal{D}$ is a $\pi$-system. Furthermore, we have shown that $A\in\mathcal{D}\implies\mathbf{1}_A\in\mathcal{H}$, with $\mathbf{1}_A$ being Borel-measurable due to $A$ being a measurable set. We also have that $(g(a),g(b)]\in\mathcal{D}$ so the first condition of the monotone class theorem is satisfied. Now let $p,q\in\mathcal{H}$. Then\begin{align*}\int_{g(a)}^{g(b)}(p+q)(y)dy&=\int_{g(a)}^{g(b)}p(y)dy+\int_{g(a)}^{g(b)}q(y)dy\\&=\int_a^bp(g(x))g'(x)dx+\int_a^bq(g(x))g'(x)dx\\&=\int_a^b(p+q)(g(x))g'(x)dx\end{align*} so $p+q\in\mathcal{H}$. Also, given $\alpha\in\mathbb{R}$ we have\[\int_{g(a)}^{g(b)}\alpha p(y)dy=\alpha\int_{g(a)}^{g(b)}p(y)dy=\int_a^b\alpha p(g(x))g'(x)dx\] so $\alpha p\in\mathcal{H}$ so the second condition of the monotone class theorem is satisfied. Now let $f_n\in\mathcal{H}$ for $n\in\mathbb{N}$ with $0\leq f_n\uparrow f$ pointwise where $f$ is bounded. Then by the monotone convergence theorem \[\int_{g(a)}^{g(b)}f(y)dy=\lim_{n\to\infty}\int_{g(a)}^{g(b)}f_n(y)dy=\lim_{n\to\infty}\int_a^bf_n(g(x))g'(x)dx.\] Since $g$ is strictly increasing we have that $g'\geq0$ so we can apply the monotone convergence theorem again to obtain\[\int_{g(a)}^{g(b)}f(y)dy=\lim_{n\to\infty}\int_a^bf_n(g(x))g'(x)dx=\int_a^bf(g(x))g'(x)dx\] and hence $f\in\mathcal{H}$. Thus the monotone class theorem implies that $\mathcal{H}$ contains every bounded measurable function with respect to $\sigma(\mathcal{D})=\mathcal{B}_{(g(a),g(b)]}$ as required.
+\end{proof}
 
 \begin{exercise}
 \begin{itemize}
