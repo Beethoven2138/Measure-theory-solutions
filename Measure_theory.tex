@@ -780,7 +780,10 @@ Let $(X, \mathcal{M})$ be a measurable space and suppose $f : X \to [0,\infty]$ 
 \int_{0}^{\infty} \int_{0}^{\infty} \mu(\{x \in X : f(x) > s, g(x) > t\})dsdt = \int_{X} f(x)g(x)\mu(dx).
 \]
 \end{exercise}
-
+\begin{proof}
+Repeatedly applying Fubini's theorem gives\begin{align*}
+\int_{0}^{\infty} \int_{0}^{\infty} \mu(\{x \in X : f(x) > s, g(x) > t\})dsdt&=\int_0^\infty\int_0^\infty\mu(f^{-1}((s,\infty))\cap g^{-1}((t,\infty)))dsdt\\&=\int_0^\infty\int_0^\infty\int_X\mathbf{1}_{f^{-1}((s,\infty))}\mathbf{1}_{g^{-1}((t,\infty))}\mu(dx) dsdt\\&=\int_0^\infty\int_0^\infty\int_X\mathbf{1}_{f(x)>s}\mathbf{1}_{g(x)>t}\mu(dx) dsdt\\&=\int_0^\infty\int_X\int_0^\infty\mathbf{1}_{f(x)>s}\mathbf{1}_{g(x)>t}ds\mu(dx) dt\\&=\int_0^\infty\int_X\mathbf{1}_{g(x)>t}\int_0^\infty\mathbf{1}_{f(x)>s}ds\mu(dx) dt\\&=\int_0^\infty\int_X\mathbf{1}_{g(x)>t}\int_0^{f(x)}1ds\mu(dx) dt\\&=\int_0^\infty\int_X\mathbf{1}_{g(x)>t}f(x)\mu(dx)dt\\&=\int_X\int_0^\infty\mathbf{1}_{g(x)>t}f(x)dt\mu(dx)\\&=\int_Xf(x)\int_0^\infty\mathbf{1}_{g(x)>t}dt\mu(dx)\\&=\int_Xf(x)g(x)\mu(dx).\end{align*}
+\end{proof}
 
 \begin{exercise}
 \begin{itemize}
