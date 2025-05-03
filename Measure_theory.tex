@@ -801,6 +801,10 @@ Repeatedly applying Fubini's theorem gives\begin{align*}
 \begin{exercise}
 Let $p \in [1, \infty)$ and let $f \in L^p(\mathbb{R})$. Let $(a_n)_{n \geq 1}$ and $(b_n)_{n \geq 1}$ be real-valued sequences such that $\sum_{n=1}^{\infty} |a_n| < \infty$. Show that the sequence of functions $f_n(x) := \sum_{k=1}^{n} a_k f(x - b_k)$ converges in $L^p(\mathbb{R})$.
 \end{exercise}
+\begin{proof}
+Let $\epsilon >0$. There exists an $N\in\mathbb{N}$ such that $\sum_{k=n}^\infty |a_k|<\frac{\epsilon}{\|f\|_p}\forall n\geq N$. Then $\forall n>m>N$ we have\[\|f_n-f_m\|_p=\sqrt[p]{\int_{-\infty}^\infty |\sum_{k=m+1}^na_kf(x-b_k)|^pdx}\leq\sum_{k=m+1}^n\sqrt[p]{\int_{-\infty}^\infty|a_kf(x-b_k)|^pdx}\] by Minkowski's inequality. Hence,\begin{align*}\|f_n-f_m\|_p&\leq\sum_{k=m+1}^n|a_k|\sqrt[p]{\int_{-\infty}^\infty |f(x-b_k)|^pdx}\\&=\sum_{k=m+1}^n|a_k|\|f\|_p\\&\leq\|f\|_p\sum_{k=m+1}^\infty|a_k|\\&<\|f\|_p\cdot\frac{\epsilon}{\|f\|_p}=\epsilon.
+\end{align*} Hence $f_n$ is a Cauchy sequence in $L^p(\mathbb{R})$ so converges in $L^p(\mathbb{R})$ by the Riesz-Fischer theorem.
+\end{proof}
 
 \begin{exercise}
 Suppose $(a_n)_{n \geq 1}$ and $(b_n)_{n \geq 1}$ are sequences of nonnegative numbers, such that $A := \sum_{n=1}^{\infty} a_n^{4/3} < \infty$ and $B := \sum_{n=1}^{\infty} b_n^4 < \infty$. Show that $\sum_{n=1}^{\infty} a_n b_n \leq A^{3/4} B^{1/4}$.
