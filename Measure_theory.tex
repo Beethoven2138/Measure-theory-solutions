@@ -809,6 +809,9 @@ Let $\epsilon >0$. There exists an $N\in\mathbb{N}$ such that $\sum_{k=n}^\infty
 \begin{exercise}
 Suppose $(a_n)_{n \geq 1}$ and $(b_n)_{n \geq 1}$ are sequences of nonnegative numbers, such that $A := \sum_{n=1}^{\infty} a_n^{4/3} < \infty$ and $B := \sum_{n=1}^{\infty} b_n^4 < \infty$. Show that $\sum_{n=1}^{\infty} a_n b_n \leq A^{3/4} B^{1/4}$.
 \end{exercise}
+\begin{proof}
+$\frac{4}{3},4\in(1,\infty)$ are conjugate exponents, $(a_n)_{n\in\mathbb{N}}\in \ell^\frac{4}{3}$ and $(b_n)_{n\in\mathbb{N}}\in \ell^4$ so by H\"{o}lder's inequality we have\[\sum_{n=1}^\infty a_nb_n=\sum_{n=1}^\infty |a_nb_n|=\|(a_nb_n)_{n\in\mathbb{N}}\|_1\leq\|(a_n)_{n\in\mathbb{N}}\|_\frac{4}{3}\|(b_n)_{n\in\mathbb{N}}\|_4=A^\frac{3}{4}B^\frac{1}{4}.\]
+\end{proof}
 
 \begin{exercise}
 Suppose that $(X, \mathcal{M}, \mu)$ is a $\sigma$-finite measure space, and $1 \leq p < q < \infty$.
