@@ -844,6 +844,11 @@ g_n(x) = \sum_{k=1}^{n} |f_k(x)| \quad \text{and} \quad g_{\infty}(x) = \sum_{k=
     \item[(ii)] Show that the function $h(x) := \sum_{m=1}^{\infty} f_n(x)$ is well-defined and finite $\mu$-a.e., that is, the sum converges for $\mu$-a.e. $x \in X$.
 \end{itemize}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] We have that $g_n^p\uparrow g_\infty^p$ pointwise so by the monotone convergence theorem,\[\lim_{n\to\infty}\|g_n\|_p^p=\lim_{n\to\infty}\int|g_n|^pd\mu=\int|g_\infty|^pd\mu=\|g_\infty\|_p^p.\] Sequential continuity gives $\lim_{n\to\infty}\|g_n\|_p^p=\left(\lim_{ n\to\infty}\|g_n\|_p\right)^p$ so\[\lim_{n\to\infty}\|g_n\|_p=\|g_\infty\|_p.\] Furthermore, by Minkoski's inequality \[\|g_n\|_p\leq\sum_{k=1}^n\|f_k\|_p\leq\sum_{k=1}^\infty\|f_k\|_p<\infty\forall n\in\mathbb{N}\] so $\|g_n\|_p$ is an increasing and bounded sequence so converges to a finite limit. Hence $\|g_\infty\|_p<\infty$.
+\end{enumerate}
+\end{proof}
 
 \begin{exercise}
 Let $W \in \mathcal{B}$, and for $f, g \in L^2(W)$, write $\langle f, g \rangle = \int_W f(x)g(x)dx$. Show that if also $h \in L^2(W)$ and $a, b \in \mathbb{R}$ then $\langle f, g + h \rangle = \langle f, g \rangle + \langle f, h \rangle$.
