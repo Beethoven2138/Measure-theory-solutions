@@ -828,6 +828,8 @@ Suppose that $(X, \mathcal{M}, \mu)$ is a $\sigma$-finite measure space, and $1 
 \begin{proof}
 \begin{enumerate}
     \item[(a)] Let $r\in(1,\infty)$ be the conjugate exponent of $\frac{q}{p}$. $f^p\in L^\frac{q}{p}(\mu)$ so by H\"{o}lder's inequality,\[\|f^p\|_1\leq\|f^p\|_\frac{q}{p}\cdot\|1\|_r.\] $\mu$ is a probability measure so $\|1\|_r=1$. Hence\[\int|f|^pd\mu=\int |f^p|d\mu\leq\left(\int|f^p|^\frac{q}{p}d\mu\right)^\frac{p}{q}=\left(\int|f|^qd\mu\right)^\frac{p}{q}\]so\[\|f\|_p=\left(\int|f|^pd\mu\right)^\frac{1}{p}\leq\left(\int|f|^qd\mu\right)^\frac{1}{q}=\|f\|_q.\]
+    \item[(b)] Let $f\in L^q(\mu)$. Let $r\in(1,\infty)$ be the conjugate exponent of $\frac{q}{p}$. We have that \[\int |f^p|^\frac{q}{p}d\mu=\int |f|^qd\mu<\infty\] so $f^p\in L^\frac{q}{p}(\mu)$. Hence by H\"{o}lder's inequality we have\[\|f^p\|_1\leq\|f^p\|_\frac{q}{p}\cdot\|1\|_r.\] Thus\[\int |f|^pd\mu=\int|f^p|d\mu\leq\left(\int|f^p|^\frac{q}{p}d\mu\right)^\frac{p}{q}\cdot\|1\|_r=\|f\|_q^p\cdot\mu(X)^\frac{1}{r}<\infty\] so $f\in L^p(\mu)$.
+    \item[(c)] Let $X:=[1,\infty)$, let $\mathcal{M}:=\mathcal{B}_X$ and let $\mu:=\lambda_1|_X$. Define $f:X\to\mathbb{R}:x\mapsto x^{-\frac{1}{2}}$. Then $f\in L^3(X)$, since $-\frac{1}{2}\cdot 3<-1$. However, $-\frac{1}{2}\cdot 2\not <-1$ so $f\not\in L^2(X)$.
 \end{enumerate}
 \end{proof}
 
