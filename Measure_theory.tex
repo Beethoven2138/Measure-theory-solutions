@@ -825,6 +825,11 @@ Suppose that $(X, \mathcal{M}, \mu)$ is a $\sigma$-finite measure space, and $1 
     \item[(c)] Give an example to show that if $\mu(X) = \infty$, then we might not have $L^q(\mu) \subset L^p(\mu)$.
 \end{itemize}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let $r\in(1,\infty)$ be the conjugate exponent of $\frac{q}{p}$. $f^p\in L^\frac{q}{p}(\mu)$ so by H\"{o}lder's inequality,\[\|f^p\|_1\leq\|f^p\|_\frac{q}{p}\cdot\|1\|_r.\] $\mu$ is a probability measure so $\|1\|_r=1$. Hence\[\int|f|^pd\mu=\int |f^p|d\mu\leq\left(\int|f^p|^\frac{q}{p}d\mu\right)^\frac{p}{q}=\left(\int|f|^qd\mu\right)^\frac{p}{q}\]so\[\|f\|_p=\left(\int|f|^pd\mu\right)^\frac{1}{p}\leq\left(\int|f|^qd\mu\right)^\frac{1}{q}=\|f\|_q.\]
+\end{enumerate}
+\end{proof}
 
 \begin{exercise}
 Let $(X, \mathcal{M}, \mu)$ be a $\sigma$-finite measure space. Let $p \in (1, \infty)$. Suppose $f \in \mathbb{R}(X)$ and (for all $n \in \mathbb{N}$) $f_n \in \mathbb{R}(X)$, with $\sum_{n=1}^{\infty} \|f_n\|_p < \infty$. For all $n \in \mathbb{N}$ and $x \in X$, set
