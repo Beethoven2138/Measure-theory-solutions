@@ -870,5 +870,12 @@ For $n \in \mathbb{N}$, let $f_n(x) = \sin(n x)$.
     \item[(c)] Prove that there exists $g \in L^2([0,2\pi])$ such that $g_n \to g$ in $L^2([0,2\pi])$ as $n \to \infty$.
 \end{itemize}
 \end{exercise}
-
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] \begin{align*}
+    I:=\int_0^{2\pi}f_n(x)f_m(x)dx&=\int_0^{2\pi}\sin(nx)\sin(mx)dx\\&=\frac{1}{m}\left[\sin(nx)\cos(mx)\right]_{2\pi}^0 +\frac{n}{m}\int_0^{2\pi}\cos(nx)\cos(mx)dx\\&=\frac{n}{m}\int_0^{2\pi}\cos((n+m)x)+\sin(nx)\sin(mx)dx\\&=\frac{n}{m(n+m)}\left[\sin((n+m)x)\right]_0^{2\pi}+\frac{n}{m}I\\&=\frac{n}{m}I.
+    \end{align*}
+    Hence \[(1-\frac{n}{m})I=0.\]$\frac{n}{m}\neq 1$ so \[I=0.\]
+\end{enumerate}
+\end{proof}
 \end{document}
