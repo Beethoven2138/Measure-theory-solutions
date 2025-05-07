@@ -861,21 +861,30 @@ Let $W \in \mathcal{B}$, and for $f, g \in L^2(W)$, write $\langle f, g \rangle 
 \begin{exercise}
 For $n \in \mathbb{N}$, let $f_n(x) = \sin(n x)$.
 \begin{itemize}
-    \item[(a)] Show that for $n, m \in \mathbb{N}$ with $n \neq m$ we have $\int_0^{2\pi} f_n(x) f_m(x)dx = 0$.
+    \item[(a)] Show that for $n, m \in \mathbb{N}$ with $n \neq m$ we have $\int_0^{2\pi} f_n(x) f_m(x)dx = 0$, while $\int_0^{2\pi}(f_n(x))^2dx=\pi$.
     
     \textit{[Hint: recall that $\cos(a + b) = \cos a \cos b - \sin a \sin b$.]}
     
-    \item[(b)] Show that $\|f_n\|_2^2 = \sum_{k=1}^{n} k^{-1}$. Show that in $L^2([0,2\pi])$ we have $\|g_n\|_2^2 = \pi \sum_{k=1}^{n} k^{-2}$.
+    \item[(b)] Now set $g_n(x) = \sum_{k=1}^{n}k^{-1}f_k(x)$. Show that in $L^2([0,2\pi])$ we have $\|g_n\|_2^2 = \pi \sum_{k=1}^{n} k^{-2}$.
     
     \item[(c)] Prove that there exists $g \in L^2([0,2\pi])$ such that $g_n \to g$ in $L^2([0,2\pi])$ as $n \to \infty$.
 \end{itemize}
 \end{exercise}
 \begin{proof}
 \begin{enumerate}
-    \item[(a)] \begin{align*}
-    I:=\int_0^{2\pi}f_n(x)f_m(x)dx&=\int_0^{2\pi}\sin(nx)\sin(mx)dx\\&=\frac{1}{m}\left[\sin(nx)\cos(mx)\right]_{2\pi}^0 +\frac{n}{m}\int_0^{2\pi}\cos(nx)\cos(mx)dx\\&=\frac{n}{m}\int_0^{2\pi}\cos((n+m)x)+\sin(nx)\sin(mx)dx\\&=\frac{n}{m(n+m)}\left[\sin((n+m)x)\right]_0^{2\pi}+\frac{n}{m}I\\&=\frac{n}{m}I.
+    \item[(a)] Let $n\neq m$\begin{align*}
+    I:=\int_0^{2\pi}f_n(x)f_m(x)dx&=\int_0^{2\pi}\sin(nx)\sin(mx)dx\\&=\frac{1}{m}\left[\sin(nx)\cos(mx)\right]_{2\pi}^0 +\frac{n}{m}\int_0^{2\pi}\cos(nx)\cos(mx)dx\\&=\frac{n}{m}\int_0^{2\pi}\cos((n+m)x)+\sin(nx)\sin(mx)dx\\&=\frac{n}{m(n+m)}\left[\sin((n+m)x)\right]_0^{2\pi}+\frac{n}{m}I\\&=\frac{n}{m}I
     \end{align*}
-    Hence \[(1-\frac{n}{m})I=0.\]$\frac{n}{m}\neq 1$ so \[I=0.\]
+    Hence \[(1-\frac{n}{m})I=0.\]$\frac{n}{m}\neq 1$ so \[I=0.\]Furthermore,\begin{align*}
+    \int_0^{2\pi}(f_n(x))^2dx&=\int_0^{2\pi}\sin^2(nx)dx\\&=\int_0^{2\pi}\frac{1-\cos(2x)}{2}dx\\&=\frac{1}{2}\left[x-\frac{\sin(2x)}{2}\right]_0^{2\pi}\\&=\pi.
+    \end{align*}
+    \item[(b)] \begin{align*}\|g_n\|_2^2&=\int_0^{2\pi}\left(\sum_{k=1}^nk^{-1}\sin(kx)\right)^2dx\\&=\int_0^{2\pi}\sum_{(i,j)\in\{1,...,n\}^2}(ij)^{-1}\sin(ix)\sin(jx)dx\\&=\sum_{(ij)\in\{1,...,n\}^2}(ij)^{-1}\int_0^{2\pi}\sin(ix)\sin(jx)dx\\&=\sum_{k=1}^nk^{-2}\int_0^{2\pi}\sin^2(ix)dx\\&=\pi\sum_{k=1}^nk^{-2}\end{align*}
+    \item[(c)] Let $\epsilon>0$. Since\[\sum_{k=1}^\infty\frac{1}{k^2}<\infty\] there exists an $N\in\mathbb{N}$ such that \[\sum_{k=N}^\infty\frac{\pi}{k^2}<\epsilon.\]
+Then for all $n>m>N$ we have
+    \begin{align*}
+    \|g_n-g_m\|_2^2&=\int_0^{2\pi}\left(\sum_{k=m+1}^n k^{-1}f_k(x)\right)^2dx\\&=\pi\sum_{k=m+1}^n\frac{1}{k^2}\\&\leq\sum_{k=m+1}^\infty\frac{\pi}{k^2}<\epsilon.
+    \end{align*}
+    Hence $g_n$ is a Cauchy sequence in $L^2([0,2\pi])$ so converges in $L^2([0,2\pi])$ to some $g\in L^2([0,2\pi])$ by the Riesz-Fischer theorem.
 \end{enumerate}
 \end{proof}
 \end{document}
