@@ -640,16 +640,15 @@ Suppose \( (X, \mathcal{M}, \mu) \) is a measure space and \( F_n \subset X \) w
         \mu(E_n) = \nu(E_n); \quad \mu(A \cap E_n) = \nu(A \cap E_n).
         \]
         \item[(b)] Now suppose moreover that \( \bigcup_{n=1}^{\infty} F_n = X \). Show that \( \mu(A) = \nu(A) \) for all \( A \in \sigma(\mathcal{D}) \).
-        
-        \textit{This is the Uniqueness lemma (Theorem 5.7). It was proved in the notes under the extra assumption that \( F_n \subset F_{n+1} \) for all \( n \in \mathbb{N} \). You are asked here to prove it without this extra assumption.}
     \end{enumerate}
-\end{exercise} 
+\end{exercise}
 \begin{proof}
 \begin{enumerate}
-    \item[(a)] \begin{align*}\mu(E_n)&=\mu(\bigcup_{j=1}^n F_j)\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\mu(\bigcap_{j\in J}F_j)\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\nu(\bigcap_{j\in J}F_j)\\&=\nu(E_n)\end{align*} since any finite intersection of $F_j$s is contained in $\mathcal{D}$, other which $\mu$ and $\nu$ agree.
+    \item[(a)] \begin{align*}\mu(E_n)&=\mu(\bigcup_{j=1}^n F_j)\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\mu(\bigcap_{j\in J}F_j)\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\nu(\bigcap_{j\in J}F_j)\\&=\nu(E_n)\end{align*} since any finite intersection of $F_j$'s is contained in $\mathcal{D}$, over which $\mu$ and $\nu$ agree.
     Similarly, \begin{align*}\mu(A\cap E_n)&=\mu(A\cap \bigcup_{j=1}^n F_j)\\&=\mu(\bigcup_{j=1}^n (A\cap F_j))\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\mu(\bigcap_{j\in J}(A\cap F_j))\\&=\sum_{J\in\mathcal{P}([n])\setminus\{\emptyset\}}(-1)^{|J|+1}\nu(\bigcap_{j\in J}(A\cap F_j))\\&=\nu(A\cap E_n).\end{align*}
+    \item[(b)] Define probability measures \[\mu_n:\mathcal{M}\to[0,\infty]:A\mapsto\frac{\mu(A\cap E_n)}{\mu(E_n)}\]and\[\nu_n:\mathcal{M}\to[0,\infty]:A\mapsto\frac{\nu(A\cap E_n)}{\nu(E_n)}\] We have that $\mu_n$ agrees with $\nu_n$ on $\mathcal{D}\forall n\in\mathbb{N}$ by part (a). Hence by the uniqueness lemma for probability measures it follows that $\mu_n$ and $\nu_n$ agree on $\sigma(\mathcal{D})\forall n\in\mathbb{N}$. Furthermore, by upwards continuity we have that \[\mu(A)=\lim_{n\to\infty}\mu(A\cap E_n)\forall A\in\sigma(\mathcal{D})\]so \[\mu(A)=\lim_{n\to\infty}\mu_n(A)\cdot\mu(E_n)\forall A\in\sigma(\mathcal{D}).\] Similarly,\[\nu(A)=\lim_{n\to\infty}\nu_n(A)\cdot\nu(E_n)\forall A\in\sigma(\mathcal{D}).\] $\mu(E_n)=\nu(E_n)\forall n\in\mathbb{N}$ by part (a) so it follows that $\mu$ and $\nu$ agree on $\sigma(\mathcal{D})$.
 \end{enumerate}
-\end{proof}con
+\end{proof}
 \begin{exercise}
 Let \( (\Omega, \mathcal{F}, \mu) \) be a probability space. Let \( f : \Omega \to [0, \infty] \) be measurable, i.e. \( f \) is a nonnegative random variable. For \( t \geq 0 \) define \( L(t) := \int_{\Omega} e^{-tf(\omega)}\mu(d\omega) \) (the \textit{Laplace transform} of \( f \)).
     
